@@ -9,7 +9,7 @@
 
 - Below, you will find an example to help you get started. Feel free to customize it to match your specific requirements and needs.
 
-# Project Name - Team Number
+# LANKAN MATKA TRAVEL BOOKING WEB PROJECT - Team 23
 
 A brief description of your web development project.
 
