@@ -26,7 +26,7 @@ A brief description of your web development project.
 In this section, list and describe the features or functionality that you are working on. You can use checkboxes to track the progress of each feature.
 
 - [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
-- [ ] Feature 2 (Full Name): Title of the feature.
+- [ ] Feature 2 (Dulshan Pramuditha Welengoda): Login Page.
 - [ ] Feature 3 (Full Name): Title of the feature.
 - [ ] Feature 4 (Full Name): Title of the feature.
 
