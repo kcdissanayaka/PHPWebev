@@ -25,15 +25,17 @@ A brief description of your web development project.
 
 In this section, list and describe the features or functionality that you are working on. You can use checkboxes to track the progress of each feature.
 
-- [ ] Feature 1 (Full Name): Title of the feature. 
+- [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
 - [ ] Feature 2 (Full Name): Title of the feature.
 - [ ] Feature 3 (Full Name): Title of the feature.
+- [ ] Feature 4 (Full Name): Title of the feature.
 
 > Add features as required. 
 
 ### Feature 1
 
-Include more detailed information about Feature 1 here. Provide links to related code files (github) & link to the feature (shell.hamk.fi) .
+As a Admin User of the website I should be able to create/ Update/ Deleate  Tour Pakages so that every visitor can see the lates tour packages in the website.
+ (Include more detailed information about Feature 1 here. Provide links to related code files (github) & link to the feature (shell.hamk.fi) ).
 
 ### Feature 2
 
