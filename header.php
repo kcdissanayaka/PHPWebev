@@ -37,7 +37,7 @@
                         <li class="hideOnMobile"><a href="#plan">Packages</a></li>
                         <li class="hideOnMobile"><a href="#services">Services</a></li>
                         <li class="hideOnMobile"><a href="#gallery">Gallery</a></li>
-                        <li class="hideOnMobile"><a href="TravelPkgs.php">Manage Tour Packages</a></li>
+                        <li class="hideOnMobile"><a href="#">Manage Packages</a></li>
                         <li class="hideOnMobile"><a href="#footer">Contact Us</a></li>
                         <li class="hideOnMobile"><a href=""><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
                         <li onclick="showSidebar()" class="menu-button"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
