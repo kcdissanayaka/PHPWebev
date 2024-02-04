@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Lankan Matka</title>
+    <title><?php echo $title ?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -27,6 +27,7 @@
                         <li><a href="#plan">Packages</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="TravelPkgs.php">Gallery</a></li>
                         <li><a href="#footer">Contact Us</a></li>
                         <li><a href=""><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
                         </ul>
@@ -36,6 +37,7 @@
                         <li class="hideOnMobile"><a href="#plan">Packages</a></li>
                         <li class="hideOnMobile"><a href="#services">Services</a></li>
                         <li class="hideOnMobile"><a href="#gallery">Gallery</a></li>
+                        <li class="hideOnMobile"><a href="TravelPkgs.php">Manage Tour Packages</a></li>
                         <li class="hideOnMobile"><a href="#footer">Contact Us</a></li>
                         <li class="hideOnMobile"><a href=""><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
                         <li onclick="showSidebar()" class="menu-button"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
