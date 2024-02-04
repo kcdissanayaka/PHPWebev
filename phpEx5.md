@@ -27,7 +27,7 @@ In this section, list and describe the features or functionality that you are wo
 
 - [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
 - [ ] Feature 2 (Dulshan Pramuditha Welengoda): Login Page.
-- [ ] Feature 3 (Full Name): Title of the feature.
+- [ ] Feature 3 (Govinnage Asitha Sandaruwan): Manage User Registration 
 - [ ] Feature 4 (Full Name): Title of the feature.
 
 > Add features as required. 
