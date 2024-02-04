@@ -480,4 +480,3 @@ include 'header.php'; ?>
         </div> <!--newsletter-->
 <?php include 'footer.php'; ?>
 
-<?php include "footer.php"; ?>
