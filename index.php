@@ -1,4 +1,4 @@
-
+<?php include "header.php"; ?>
         </section>
         <!-- Tour Plan -->
 
@@ -476,3 +476,5 @@
                 </div>
             </div>
         </div> <!--newsletter-->
+
+<?php include "footer.php"; ?>
