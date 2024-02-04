@@ -479,3 +479,5 @@ include 'header.php'; ?>
             </div>
         </div> <!--newsletter-->
 <?php include 'footer.php'; ?>
+
+<?php include "footer.php"; ?>
