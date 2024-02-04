@@ -43,7 +43,7 @@ The login page will be created in order to authenticate users into the web porta
 
 ### Feature 3
 
-My role in Team 23 is to manage user registration. In this feature I will develop user sign up and create accounts on the website so they can book travel packages by registraring to the site and can access other features as well offered by Lankan Matka travel agency. I make sure the registration process is smooth and easy for users.
+My role in Team 23 is managing user registration. In this feature I will develop user registration and create accounts on the website so they can book travel packages by registering to the site and can access other features as well offered by Lankan Matka travel agency. I make sure the registration process will be smooth and easy for users.
 
 ---
 
