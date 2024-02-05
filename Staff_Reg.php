@@ -7,7 +7,7 @@
     <div class="tourPlan">
         <div class="row">
             <div class="col text-center">
-                <h1>Staff Regsitration</h1>
+                <h1>Staff Registration</h1>
     </div>
         </div>
 
