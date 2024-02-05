@@ -46,6 +46,7 @@
 </div>
 
 <div class="text-right">
+    <button type="submit" class="btn btn-primary">Register</button>
 </div>
 
         </form>
