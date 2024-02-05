@@ -28,7 +28,7 @@ In this section, list and describe the features or functionality that you are wo
 - [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
 - [ ] Feature 2 (Dulshan Pramuditha Welengoda): Login Page.
 - [ ] Feature 3 (Govinnage Asitha Sandaruwan): Manage User Registration 
-- [ ] Feature 4 (Full Name): Title of the feature.
+- [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Package Booking Management  
 
 > Add features as required. 
 
@@ -45,6 +45,9 @@ The login page will be created in order to authenticate users into the web porta
 
 My role in Team 23 is managing user registration. In this feature I will develop user registration and create accounts on the website so they can book travel packages by registering to the site and can access other features as well offered by Lankan Matka travel agency. I make sure the registration process will be smooth and easy for users.
 
+### Feature 4
+
+Package booking: User package booking management, save the booking details in database, add the card to select multiple packages and finally do the online payment and send the invoice by email.  
 ---
 
 ## Database Tables
