@@ -68,3 +68,5 @@ document.querySelectorAll('.image-container2 img').forEach(image => {
         document.querySelector('#ellaSlide').src = image.getAttribute('src');
     }
 });
+
+
