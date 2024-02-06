@@ -1,7 +1,9 @@
 <?php 
     $title ="Exercise 4: Control flow and loops";
     include 'header.php'; 
+    
 ?>
+
 
 <section id="plan">
     <div class="tourPlan">
@@ -15,18 +17,18 @@
     
 <div class="row justify-content-center">
     <div class="col-md-4">
-        <form action="registration.php" method="post">
+    <form id="staffreg">
     <div class="form-group">
         <label for="firstname">First Name:</label>
-        <input type="text" class="form-control" name="firstname" required>
+        <input type="text" class="form-control" name="firstname" id="fname" required>
     </div>
     <div class="form-group">
         <label for="lastname">Last Name:</label>
-        <input type="text" class="form-control" name="lastname" required>
+        <input type="text" class="form-control" name="lastname" id="lname" required>
     </div>
     <div class="form-group">
         <label>Role:</label>
-        <select class="form-control" name="role" required>
+        <select class="form-control" name="role" id="role" required>
         <option value="admin">Admin</option>
         <option value="moderator">Moderator</option>
         <option value="user">User</option>
@@ -37,16 +39,16 @@
 
 <div class="form-group">
     <label for="phonenumber">Phone Number:</label>
-    <input type="text" class="form-control" name="phonenumber" required>
+    <input type="number" class="form-control" name="phonenumber" id="phonenumber" required>
 </div>
 
 <div class="form-group">
     <label for="password">Password:</label>
-    <input type="text" class="form-control" name="password" required>
+    <input type="password" class="form-control" name="password" id="pw" required>
 </div>
 
 <div class="text-right">
-    <button type="submit" class="btn btn-primary">Register</button>
+    <button type="submit" class="btn btn-primary" name="submit" id="register">Register</button>
 </div>
 
         </form>
@@ -55,5 +57,37 @@
 </div>
 
 <br>
-
 <?php include 'footer.php'; ?>
+
+<script>
+$(document).ready(function () {
+  $("#staffreg").submit(function (event) {
+    event.preventDefault();
+
+    var formData = {
+      firstname: $("#fname").val(),
+      lastname: $("#lname").val(),
+      role: $("#role").val(),
+      phonenumber: $("#phonenumber").val(),
+      password: $("#pw").val(),
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "staff_reg_process.php",
+      data: formData,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+        Swal.fire({
+        title: "Added",
+        text: "Your record has been addded.",
+        icon: "success"
+        });  
+
+        $("#staffreg")[0].reset();
+    });
+
+  });
+});
+</script>

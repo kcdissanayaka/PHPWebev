@@ -11,10 +11,11 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap">
     <link rel="stylesheet" href="styles/styles.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+    
 
-<body>
+    <body>
     <div class="container">
+        
         <div class="row">
             <div class="col">
                 <header class="header">
@@ -22,7 +23,7 @@
                     <nav class="navbar navbar-expand-md">
                         <ul class="sidebar">
                         <li onclick=hideSidebar()><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a></li>
-                        <li><a href="#home">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="#booking">Book</a></li>
                         <li><a href="#plan">Packages</a></li>
                         <li><a href="#services">Services</a></li>
@@ -32,14 +33,14 @@
                         <li><a href=""><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
                         </ul>
                         <ul>
-                        <li class="hideOnMobile"><a href="#home">Home</a></li>
+                        <li class="hideOnMobile"><a href="index.php">Home</a></li>
                         <li class="hideOnMobile"><a href="#booking">Book</a></li>
                         <li class="hideOnMobile"><a href="#plan">Packages</a></li>
                         <li class="hideOnMobile"><a href="#services">Services</a></li>
                         <li class="hideOnMobile"><a href="#gallery">Gallery</a></li>
-                        <li class="hideOnMobile"><a href="#">Manage Packages</a></li>
                         <li class="hideOnMobile"><a href="#footer">Contact Us</a></li>
                         <li class="hideOnMobile"><a href=""><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                        <li class="hideOnMobile"><a href="cus_reg.php" data-toggle="modal" data-target="#contact-modal">Register</a></li>
                         <li onclick="showSidebar()" class="menu-button"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
                         </ul>
                     </nav>
@@ -74,3 +75,76 @@
                     </div>
                 </div>
             </div>
+                    </section>
+
+
+    <div id="contact">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<div id="contact-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+                <h3>Customer Registration</h3>
+					<a class="close" data-dismiss="modal">×</a>
+					
+				</div>
+				<form id="contactForm" name="contact" role="form">
+					<div class="modal-body">				
+						<div class="form-group">
+							<label for="firstname">First Name</label>
+							<input type="text" name="fname" class="form-control" id="firstname" required>
+						</div>
+						<div class="form-group">
+							<label for="lastname">Last Name</label>
+							<input type="text" name="lname" class="form-control" id="lastname" required>
+						</div>
+						<div class="form-group">
+							<label for="email">Email</label>
+							<input type="text" name="email" class="form-control" id="email" required>
+						</div>	
+                        <div class="form-group">
+							<label for="password">Password</label>
+							<input type="password" name="password" class="form-control" id="password" required>
+						</div>				
+					</div>
+					<div class="modal-footer">					
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<input type="submit" class="btn btn-success" id="submit">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<script>
+$(document).ready(function () {
+  $("#contactForm").submit(function (event) {
+    event.preventDefault();
+
+    var formData = {
+      firstname: $("#firstname").val(),
+      lastname: $("#lastname").val(),
+      email: $("#email").val(),
+      password: $("#password").val(),
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "cus_add_process.php",
+      data: formData,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+        Swal.fire({
+        title: "Registered",
+        text: "You have successfully Registered",
+        icon: "success"
+        });  
+
+        $("#contactForm")[0].reset();
+    });
+
+  });
+});
+</script>
+	

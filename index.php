@@ -140,8 +140,8 @@ include 'header.php'; ?>
                                     <input type="text" class="form-control" id="name" placeholder="Tommi Saksa">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" class="form-control" id="email"
+                                    <label for="text">Email Address</label>
+                                    <input type="text" class="form-control" id="text"
                                         placeholder="tommisaksa@gmail.com">
                                 </div>
                                 <div class="form-group">
