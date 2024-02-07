@@ -77,7 +77,7 @@
             </div>
                     </section>
 
-
+                        
     <div id="contact">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<div id="contact-modal" class="modal fade" role="dialog">
@@ -85,8 +85,7 @@
 			<div class="modal-content">
 				<div class="modal-header">
                 <h3>Customer Registration</h3>
-					<a class="close" data-dismiss="modal">×</a>
-					
+					<a href="" class="close" data-dismiss="modal">×</a>
 				</div>
 				<form id="contactForm" name="contact" role="form">
 					<div class="modal-body">				
