@@ -1,115 +1,100 @@
-<?php 
-    $title ="Registered Users Login Page";
-    include 'header.php'; 
-?>
-
 <?php
-session_start();
-
-function registerUser($username, $password) {
-    $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    
-    $_SESSION['users'][$username] = ['username' => $username, 'password' => $hashedPassword];
-}
-
-function loginUser($username, $password) {
-    if (isset($_SESSION['users'][$username])) {
-        $hashedPassword = $_SESSION['users'][$username]['password'];
-        if (password_verify($password, $hashedPassword)) {
-            $_SESSION['logged_in_user'] = $username;
-            return true;
-        }
-    }
-    return false;
-}
-
-function isLoggedIn() {
-    return isset($_SESSION['logged_in_user']);
-}
-
-function getLoggedInUser() {
-    return $_SESSION['logged_in_user'] ?? null;
-}
-
-function logoutUser() {
-    unset($_SESSION['logged_in_user']);
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['register'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        registerUser($username, $password);
-    } elseif (isset($_POST['login'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        if (loginUser($username, $password)) {
-            header('Location: ' . $_SERVER['PHP_SELF']);
-            exit;
-        }
-    } elseif (isset($_POST['logout'])) {
-        logoutUser();
-        header('Location: ' . $_SERVER['PHP_SELF']);
-        exit;
-    }
-}
+   include 'header.php';
+   ob_start();
+   session_start();
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
+   
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Management</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .welcome-message {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
+   <title>LankanMatka Customer Login Page</title>
+   <link href="css/bootstrap.min.css" rel="stylesheet">
+      
+   <style>
+      body {
+         padding-top: 40px;
+         padding-bottom: 40px;
+         background-color: #ADABAB;
+      }
+         
+      .form-signin {
+         max-width: 330px;
+         padding: 15px;
+         margin: 0 auto;
+         color: #017572;
+      }
+         
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+         margin-bottom: 10px;
+      }
+         
+      .form-signin .checkbox {
+         font-weight: normal;
+      }
+         
+      .form-signin .form-control {
+         position: relative;
+         height: auto;
+         -webkit-box-sizing: border-box;
+         -moz-box-sizing: border-box;
+         box-sizing: border-box;
+         padding: 10px;
+         font-size: 16px;
+      }
+         
+      .form-signin .form-control:focus {
+         z-index: 2;
+      }
+         
+      .form-signin input[type="email"] {
+         margin-bottom: -1px;
+         border-bottom-right-radius: 0;
+         border-bottom-left-radius: 0;
+         border-color: #017572;
+      }
+         
+      .form-signin input[type="password"] {
+         margin-bottom: 10px;
+         border-top-left-radius: 0;
+         border-top-right-radius: 0;
+         border-color: #017572;
+      }
+         
+      h2 {
+         text-align: center;
+         color: #017572;
+      }
+   </style>
 </head>
+	
 <body>
-    <div class="container">
-        <?php if (isLoggedIn()): ?>
-            <div class="alert alert-success welcome-message" role="alert">
-                Welcome, <?php echo getLoggedInUser(); ?>!
-                <form method="post">
-                    <button type="submit" name="logout" class="btn btn-danger">Logout</button>
-                </form>
-            </div>
-        <?php else: ?>
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Login or Register</h5>
-                    <form method="post">
-                        <div class="form-group">
-                            <label for="username">Username:</label>
-                            <input type="text" name="username" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input type="password" name="password" class="form-control" required>
-                        </div>
-                        <button type="submit" name="login" class="btn btn-primary">Login</button>
-                        <button type="submit" name="register" class="btn btn-success">Register</button>
-                    </form>
-                </div>
-            </div>
-        <?php endif; ?>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <h2>Enter Username and Password</h2> 
+   <div class="container form-signin">
+      <?php
+         $msg = '';
+         if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
+            if ($_POST['username'] == '' && $_POST['password'] == '') {
+               $_SESSION['valid'] = true;
+               $_SESSION['timeout'] = time();
+               $_SESSION['username'] = '';
+               echo 'Welcome to Your LankanMatka Web Portal..!!';
+            } else {
+               $msg = 'Wrong username or password';
+            }
+         }
+      ?>
+   </div> <!-- /container -->
+   
+   <div class="container">
+      <form class="form-signin" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+         <h4 class="form-signin-heading"><?php echo $msg; ?></h4>
+         <input type="text" class="form-control" required autofocus><br>
+         <input type="password" class="form-control" required><br>
+         <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Login</button>
+      </form>
+      
+      <?php include 'footer.php'; ?>      
+   </div> 
 </body>
 </html>
-
-<?php include 'footer.php'; ?>
