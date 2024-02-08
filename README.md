@@ -35,6 +35,7 @@ In this section, list and describe the features or functionality that you are wo
 ### Feature 1
 
 As a Admin an User of the website I should be able to create/ Update/ Delete  Tour Pakages so that every visitor can see the latest tour packages in the website.
+
  (Include more detailed information about Feature 1 here. Provide links to related code files (github) & link to the feature (shell.hamk.fi) ).
 
 ### Feature 2
@@ -56,11 +57,12 @@ Package booking: User package booking management, save the booking details in da
 
 List the database tables that are part of your project. 
 
-- Table 1 (Created By): Table Name 
+- Table 1 (Created By : KASUN CHATHURANGA DISSANAYAKA): TourPlanCard 
 - Table 2 (Created By): Table Name 
 - Table 3 (Created By): Table Name 
 
 > Include the ER Diagram of the database. 
+![ERD-DIAGRAM LANKAN MATKA](/PHPWebev/assets/images/PROJECT_ERD/LankanMatkaERD.png)
 
 ---
 
@@ -68,7 +70,7 @@ List the database tables that are part of your project.
 
 List and describe any forms that have been created as part of your project. Include details about the purpose of each form and any validation logic.
 
-- Form 1 (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
+- Form 1 (Created By KASUN CHATHURANGA DISSANAYAKA): travelPkgs.php: Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 - Form 3: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 
@@ -79,7 +81,7 @@ List and describe any forms that have been created as part of your project. Incl
 
 List any tables that you have created in the project work
 
-- Table 1 (Created By): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
+- Table 1 (Created By KASUN CHATHURANGA DISSANAYAKA): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
 - Table 2 (Created By): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
 - Table 3 (Created By): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
 
