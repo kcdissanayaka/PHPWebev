@@ -21,4 +21,26 @@ CREATE TABLE `staffreg` (
   `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
+
+# Table 3 : Kasun Chathuranga Dissanayaka
+
+-- Table structure for table `TourPlanCard`
+--
+
+CREATE TABLE `TourPlanCard` (
+  `TOUR_PLN_ID` int NOT NULL,
+  `TOUR_PLN_TITLE` varchar(60) NOT NULL,
+  `TOUR_PLN_DESCRIPTION` varchar(500) NOT NULL,
+  `TOUR_PLN_IMAGE` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `TOUR_PLN_DAYS` int NOT NULL,
+  `TOUR_PLN_PERSON_PRICE` int NOT NULL,
+  `TOUR_PLN_CREATED_BY` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `TOUR_PLN_CREATED_DATE` timestamp NOT NULL,
+  `TOUR_PLN_MODIFIED_BY` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `TOUR_PLN_MODIFIED_DATE` timestamp NULL DEFAULT NULL,
+  `TOUR_PLN_ROW_ID` int DEFAULT NULL,
+  `TOUR_PLN_STATUS` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
 '''
