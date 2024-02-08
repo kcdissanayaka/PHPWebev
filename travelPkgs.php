@@ -1,6 +1,7 @@
 <?php 
      $title =" Manage Tour Packages ";
-include 'header.php'; ?>
+include 'header.php';
+include 'dbkcd.php'; ?> 
         </section>
         <!-- Tour Plan -->
 
@@ -8,10 +9,11 @@ include 'header.php'; ?>
             <div class="tourPlan text-center">
                 <div class="row">
                     <div class="col">
-                        <h1>THRILLING TOUR PLANS</h1>
+                        <h1>PREVIEW TOUR PLANS</h1>
                     </div>
                 </div>
                 <div class="container text-center mt-2">
+   
                     <div class="row tourPlanCards">
                         <div class="col-md-4">
                             <div class="card m-4 shadow" style="width: 18rem;">
@@ -36,7 +38,7 @@ include 'header.php'; ?>
                                         alt="Ella Nine Arch Bridge">
                                     <div class="card-body">
                                         <h5 class="card-title">Ella</h5>
-                                        <p class="card-text">Laid-back Ella draws travellers to Sri Lanka's
+                                        <p class="card-text">Laid-back Ella draws travellers to Sri Lankas
                                             highlands with its mountain forests, tea plantations, relatively
                                             climate.</p>
                                         <a href="#" class="btn btn-warning">Book Now</a>
@@ -83,7 +85,7 @@ include 'header.php'; ?>
                                         src="assets/images/trip-plans-card-img/udawalawa.jpg" alt="Udawalawa">
                                     <div class="card-body">
                                         <h5 class="card-title">Udawalawa</h5>
-                                        <p class="card-text">Udawalawe is famous for its herd around 250 elephants,
+                                        <p class="card-text">Udawalawe is famous its herd around 250 elephants,
                                             that are quite easy spot grazing on surrounding grasslands.</p>
                                         <a href="#" class="btn btn-warning">Book Now</a>
                                     </div>
@@ -106,65 +108,87 @@ include 'header.php'; ?>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div> <!--tourPlan-->
-        </section>
+                        </section> 
+
+        
+    <!-- Services -->
+    <!-- From Manage Tour Plans -->
         <section id="services">
-            <div class="service-header text-center">
+            <div class="service-header">
                 <div class="row">
                     <div class="col">
-                        <h1>Manage Tour Plans</h1>
+                        <h1>Crate Travel Plan</h1>
                     </div>
                 </div>
-                <form>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputEmail4">Email</label>
-                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label for="inputPassword4">Password</label>
-                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress">Address</label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress2">Address 2</label>
-                        <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="inputCity">City</label>
-                            <input type="text" class="form-control" id="inputCity">
-                        </div>
-                    <div class="form-group col-md-4">
-                        <label for="inputState">State</label>
-                        <select id="inputState" class="form-control">
-                        <option selected>Choose...</option>
-                        <option>...</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label for="inputZip">Zip</label>
-                        <input type="text" class="form-control" id="inputZip">
-                    </div>
-                    </div>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck">
-                                <label class="form-check-label" for="gridCheck">
-                                confirmed
-                                </label>
+                
+                    <form name = "ManageTourPlan" id="myForm" class="row text-left m-1 m-3" method="post" action="processTurpkg.php" enctype="multipart/form-data">
+                       
+                            <div class=" col-md-4 pb-4">
+                                <label for="tourPlnTitle" class="form-label">Plan Name</label>
+                                <input type="text" class="form-control" name="tourPlnTitle" id="tourPlnTitle">
                             </div>
-                        </div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
-                </form>
+                            <div class=" col-md-4 pb-4">
+                                <label for="plnDays" class="form-label">Number of Days</label>
+                                <input type="number" class="form-control" name="plnDays" id="plnDays">
+                            </div>
+                            <div class=" col-md-4 pb-4">
+                                <label for="plnprice" class="form-label">Price</label>
+                                <input type="number" class="form-control" name="plnprice" id="plnprice">
+                            </div>
+                                                
+                            <div class="col-md-12 pb-4">
+                                <label for="plnSummary" class="form-label">Tour Plan Summary</label>
+                                <textarea class="form-control" name="plnSummary" rows="3" id="plnSummary"></textarea>
+                            </div>
+                            
+                                <div class="input-group col-md-12 pb-4">
+                                <input type="file" class="form-control" name="image" aria-describedby="submit" aria-label="Upload" id="image">
+                                
+                            </div>
+                             <div class="col-md-12 pb-4">
+                                <label for="imageText" class="form-label">Image Description</label>
+                                <textarea class="form-control" name="imageText" rows="3" id="imageText"></textarea>
+                                
+                            </div>
+
+                            <div class=" col-md-4 pb-4">
+                                <label for="plnstatus" class="form-label">Status</label>
+                                <select class="form-control" id="plnstatus" name="plnstatus">
+                                            <option value="A">ACTIVE</option>
+                                            <option value="I">INACTIVE</option>
+
+                                </select>
+
+
+                            <div class=" my-4">
+                            <button type="submit" name ="submit" class="btn btn-warning">Create Plan</button>
+
+                            <button type="button" value="Submit" name ="clear" id ="clear" onclick="resetform()" class="btn btn-warning">Clear Form</button>
+                             
+                            </div >
+
+                            
+
+                    </form>
+
+                                  
             </div> <!--Services-->
         </section>
 
-        
+
+<script>
+        function resetform(){
+            document.getElementById('tourPlnTitle').value='';
+            document.getElementById('image').value='';
+            document.getElementById('plnDays').value='';
+            document.getElementById('plnprice').value='';
+            document.getElementById('plnSummary').value='';
+            document.getElementById('imageText').value='';
+            }
+    </script>
+
+
+
 <?php include 'footer.php'; ?>
+
+ 
