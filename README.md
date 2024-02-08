@@ -41,7 +41,7 @@ As a Admin an User of the website I should be able to create/ Update/ Delete  To
 
 The login page will be created in order to authenticate users into the web portal after successful validation.
 
-Management of the services for the customer will be handled by this page
+Management of the services for the customer will be handled by the services management page
 
 ### Feature 3
 
