@@ -50,7 +50,7 @@ My role in Team 23 is managing user registration. In this feature I will develop
 
 ### Feature 4
 
-Package booking: User package booking management, save the booking details in database, add the card to select multiple packages and finally do the online payment and send the invoice by email.  
+Package booking: User package booking management, save the booking details in database, add the card to select multiple packages and finally do the payment and store all the data into the db.   
 ---
 
 ## Database Tables
@@ -58,8 +58,11 @@ Package booking: User package booking management, save the booking details in da
 List the database tables that are part of your project. 
 
 - Table 1 (Created By : KASUN CHATHURANGA DISSANAYAKA): TourPlanCard 
-- Table 2 (Created By): Table Name 
-- Table 3 (Created By): Table Name 
+- Table 2 (Created By): MUJITHA MANORATHNA: STAFFROLE 
+- Table 3 (Created By): MUJITHA MANORATHNA: CUSTOMER_BOOKING 
+- Table 4 (Created By): Table Name 
+- Table 5 (Created By): Table Name 
+- Table 6 (Created By): Table Name 
 
 > Include the ER Diagram of the database. 
 ![ERD-DIAGRAM LANKAN MATKA](assets/images/PROJECT_ERD/LankanMatkaERD.png)
