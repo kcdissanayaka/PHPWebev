@@ -26,7 +26,7 @@ A brief description of your web development project.
 In this section, list and describe the features or functionality that you are working on. You can use checkboxes to track the progress of each feature.
 
 - [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
-- [ ] Feature 2 (Dulshan Pramuditha Welengoda): Login Page.
+- [ ] Feature 2 (Dulshan Pramuditha Welengoda): Login Page. Services Management
 - [ ] Feature 3 (Govinnage Asitha Sandaruwan): Manage User Registration 
 - [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Package Booking Management  
 
@@ -40,6 +40,8 @@ As a Admin an User of the website I should be able to create/ Update/ Delete  To
 ### Feature 2
 
 The login page will be created in order to authenticate users into the web portal after successful validation.
+
+Management of the services for the customer will be handled by the services management page
 
 ### Feature 3
 
