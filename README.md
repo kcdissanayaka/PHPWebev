@@ -60,7 +60,7 @@ List the database tables that are part of your project.
 - Table 1 (Created By : KASUN CHATHURANGA DISSANAYAKA): TourPlanCard 
 - Table 2 (Created By): MUJITHA MANORATHNA: Staff_role 
 - Table 3 (Created By): MUJITHA MANORATHNA: Customer_Booking 
-- Table 4 (Created By): Table Name 
+- Table 4 (Created By): DULSHAN WELENGODA: SERVICES_INFO 
 - Table 5 (Created By): Table Name 
 - Table 6 (Created By): Table Name 
 
@@ -75,7 +75,9 @@ List and describe any forms that have been created as part of your project. Incl
 
 - Form 1 (Created By KASUN CHATHURANGA DISSANAYAKA): travelPkgs.php: Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
-- Form 3: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
+- Form 3: (Created By): DULSHAN WELENGODA Form Name: login.php Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
+- Form 4: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
+
 
 
 ---

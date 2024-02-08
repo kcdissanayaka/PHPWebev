@@ -70,3 +70,17 @@ CREATE TABLE `Staff_role` (
   `Role_id` int NOT NULL,
   `Role_Name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+# Table 6 : Dulshan Welengoda
+
+-- Table structure for table `SERVICES_INFO`
+--
+
+CREATE TABLE `SERVICES_INFO` (
+  `SERVICE_ID` int NOT NULL,
+  `SERVICE_DESCRIPTION` varchar(1000) NOT NULL,
+  `CREATED_DATE` date NOT NULL,
+  `MODIFIED_DATE` date NOT NULL,
+  `CREATED_USER` varchar(100) NOT NULL,
+  `MODIFIED_USER` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
