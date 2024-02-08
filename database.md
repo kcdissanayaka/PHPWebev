@@ -43,4 +43,30 @@ CREATE TABLE `TourPlanCard` (
   `TOUR_PLN_STATUS` varchar(1) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-'''
+''''
+
+# Table 4 : Mujitha Manorathna
+
+-- Table structure for table `Customer_Booking`
+--
+
+CREATE TABLE `Customer_Booking` (
+  `booking_id` int NOT NULL,
+  `customer_id` int NOT NULL,
+  `package_id` int NOT NULL,
+  `booking_date` date NOT NULL,
+  `number_of_Pax` int NULL,
+  `start_date` date NOT NULL,
+  `end_date` date NOT NULL,
+  `amount` double NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+# Table 5 : Mujitha Manorathna
+
+-- Table structure for table `Staff_role`
+--
+
+CREATE TABLE `Staff_role` (
+  `Role_id` int NOT NULL,
+  `Role_Name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
