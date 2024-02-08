@@ -62,7 +62,7 @@ List the database tables that are part of your project.
 - Table 3 (Created By): Table Name 
 
 > Include the ER Diagram of the database. 
-![ERD-DIAGRAM LANKAN MATKA](/PHPWebev/assets/images/PROJECT_ERD/LankanMatkaERD.png)
+![ERD-DIAGRAM LANKAN MATKA](assets/images/PROJECT_ERD/LankanMatkaERD.png)
 
 ---
 
