@@ -1,7 +1,9 @@
 <?php
    include 'header.php';
-   ob_start();
-   session_start();
+   // Start the session if not already started
+   if (!isset($_SESSION)) {
+      session_start();
+   }
 ?>
 
 <html lang="en">
@@ -69,17 +71,31 @@
 </head>
 	
 <body>
-   <h2>Enter Username and Password</h2> 
+   <h2>Welcome to LankanMatka...!! Please enter Your Username and Password</h2> 
    <div class="container form-signin">
       <?php
+         // Initialize the message variable
          $msg = '';
+         // Check if the user inputs are set and not empty
          if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-            if ($_POST['username'] == '' && $_POST['password'] == '') {
+            // Validate and sanitize the user inputs
+            $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_EMAIL);
+            $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
+            // Check the database for the matching email and password
+            // This is a placeholder code, you need to replace it with your own database connection and query
+            $db = new PDO('mysql:host=localhost;dbname=travel_booking_system', 'root', '');
+            $stmt = $db->prepare('SELECT * FROM user WHERE email = ? AND password = ?');
+            $stmt->execute([$username, $password]);
+            $user = $stmt->fetch();
+            // If the user is found, create a session and redirect to the home page of the user
+            if ($user) {
                $_SESSION['valid'] = true;
                $_SESSION['timeout'] = time();
-               $_SESSION['username'] = '';
-               echo 'Welcome to Your LankanMatka Web Portal..!!';
+               $_SESSION['username'] = $username;
+               header('Location: user_home.php');
+               exit();
             } else {
+               // If the user is not found, set the error message
                $msg = 'Wrong username or password';
             }
          }
@@ -89,8 +105,8 @@
    <div class="container">
       <form class="form-signin" role="form" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
          <h4 class="form-signin-heading"><?php echo $msg; ?></h4>
-         <input type="text" class="form-control" required autofocus><br>
-         <input type="password" class="form-control" required><br>
+         <input type="email" class="form-control" name="username" placeholder="Enter your email" required autofocus><br>
+         <input type="password" class="form-control" name="password" placeholder="Enter your password" required><br>
          <button class="btn btn-lg btn-primary btn-block" type="submit" name="login">Login</button>
       </form>
       
