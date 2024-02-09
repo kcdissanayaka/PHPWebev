@@ -69,8 +69,8 @@ List the database tables that are part of your project.
 - Table 2 (Created By): MUJITHA MANORATHNA: Staff_role 
 - Table 3 (Created By): MUJITHA MANORATHNA: Customer_Booking 
 - Table 4 (Created By): DULSHAN WELENGODA: SERVICES_INFO 
-- Table 5 (Created By): Asitha Sandaruwan : staffreg, customer_reg 
-- Table 6 (Created By): Table Name 
+- Table 5 (Created By): ASITHA SANDARUWAN : staffreg
+- Table 6 (Created By): ASITHA SANDARUWAN : customer_reg 
 
 > Include the ER Diagram of the database. 
 ![ERD-DIAGRAM LANKAN MATKA](assets/images/PROJECT_ERD/LankanMatkaERD.png)
