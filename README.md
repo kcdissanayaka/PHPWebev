@@ -11,7 +11,7 @@
 
 # LANKAN MATKA TRAVEL BOOKING WEB PROJECT - Team 23
 
-A brief description of your web development project.
+We have developed a travel destination management agency website. This site was developed especially to promote Sri Lanka as a travel destination among the Finnish travel enthusiasts.
 
 ## Table of Contents
 - [Features](#features)
