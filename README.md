@@ -11,7 +11,7 @@
 
 # LANKAN MATKA TRAVEL BOOKING WEB PROJECT - Team 23
 
-A brief description of your web development project.
+We have developed a travel destination management agency website. This site was developed especially to promote Sri Lanka as a travel destination among the Finnish travel enthusiasts.
 
 ## Table of Contents
 - [Features](#features)
@@ -51,6 +51,14 @@ My role in Team 23 is managing user registration. In this feature I will develop
 ### Feature 4
 
 Package booking: User package booking management, save the booking details in database, add the card to select multiple packages and finally do the payment and store all the data into the db.   
+
+### Feature 5
+
+Admin panel: this admin dashboard for the all the backend tasks like employee profile creation, managing, other website managing task like adding new content package, services. 
+
+login details: 
+admin
+admin123
 ---
 
 ## Database Tables
