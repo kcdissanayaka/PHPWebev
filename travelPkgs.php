@@ -155,7 +155,7 @@ $conn->close();
                     </div>
                 </div>
                 
-                    <form name = "ManageTourPlan" id="myForm" class="row text-left m-1 m-3" method="post" action="processTurpkg.php" enctype="multipart/form-data">
+                    <form name = "ManageTourPlan" id="myForm" class="row text-left  m-3" method="post" action="processTurpkg.php" enctype="multipart/form-data">
                        
                             <div class=" col-md-4 pb-4">
                                 <label for="tourPlnTitle" class="form-label">Plan Name</label>
