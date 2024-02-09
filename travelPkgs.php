@@ -26,7 +26,7 @@ $conn->close();
             <div class="tourPlan text-center">
                 <div class="row">
                     <div class="col">
-                        <h1>THRILLING TOUR PLANS</h1>
+                        <h1>PREVIEW TOUR PLANS</h1>
                     </div>
                 </div>
                 <div class="container text-center mt-2">
