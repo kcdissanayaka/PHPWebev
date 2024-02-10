@@ -84,7 +84,7 @@ List and describe any forms that have been created as part of your project. Incl
 - Form 1 (Created By KASUN CHATHURANGA DISSANAYAKA): travelPkgs.php: Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 - Form 3: (Created By): DULSHAN WELENGODA Form Name: login.php Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
-- Form 4: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
+- Form 4: (Created By): (Created By ASITHA SANDARUWAN ): staff_reg.php & cus_reg: Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
 
 
 
@@ -95,8 +95,8 @@ List and describe any forms that have been created as part of your project. Incl
 List any tables that you have created in the project work
 
 - Table 1 (Created By KASUN CHATHURANGA DISSANAYAKA): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
-- Table 2 (Created By): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
-- Table 3 (Created By): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
+- Table 2 (Created By ASITHA SANDARUWAN): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
+- Table 3 (Created By ASITHA SANDARUWAN): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
 
 ---
 
