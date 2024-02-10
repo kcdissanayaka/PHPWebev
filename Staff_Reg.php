@@ -1,7 +1,7 @@
 <?php 
     $title ="Exercise 4: Control flow and loops";
     include 'header.php'; 
-    
+    include 'db.php';
 ?>
 
 
@@ -27,19 +27,34 @@
         <input type="text" class="form-control" name="lastname" id="lname" required>
     </div>
     <div class="form-group">
-        <label>Role:</label>
-        <select class="form-control" name="role" id="role" required>
-        <option value="admin">Admin</option>
-        <option value="moderator">Moderator</option>
-        <option value="user">User</option>
-        <option value="manager">Manager</option>
-        <option value="agent">Travel Agent</option>
-        </select>
-    </div>
+    <label for="role">Role:</label>
+    <select class="form-control" name="role" id="role" required>
+        <?php 
+        $query = mysqli_query($conn, 'SELECT * FROM STAFFROLE');
+        if ($query) {
+            while ($row = mysqli_fetch_assoc($query)) {
+                ?>
+                <option value="<?php echo $row['ROLEID']; ?>"><?php echo $row['ROLE_NAME']; ?></option>
+                <?php
+            }
+        } else {
+            echo "Error: " . mysqli_error($conn);
+        }
+        ?>
+    </select>
+</div>
+
+
+    
 
 <div class="form-group">
     <label for="phonenumber">Phone Number:</label>
     <input type="number" class="form-control" name="phonenumber" id="phonenumber" required>
+</div>
+
+<div class="form-group">
+    <label for="password">username:</label>
+    <input type="text" class="form-control" name="username" id="username" required>
 </div>
 
 <div class="form-group">
@@ -69,6 +84,7 @@ $(document).ready(function () {
       lastname: $("#lname").val(),
       role: $("#role").val(),
       phonenumber: $("#phonenumber").val(),
+      username: $("#username").val(),
       password: $("#pw").val(),
     };
 

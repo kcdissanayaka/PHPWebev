@@ -10,10 +10,11 @@ if (isset($_POST['firstname'])) {
     $lname= $_POST['lastname'];
     $role= $_POST['role'];
     $phonenumber= $_POST['phonenumber'];
+    $username= $_POST['username'];
     $password= $_POST['password'];
     
-    $sql="insert into staffreg (first_name, last_name,role, phone_number, password)			
-    values('$fname', '$lname', '$role', '$phonenumber','$password')";
+    $sql="insert into STAFFREG (FIRST_NAME, LAST_NAME, ROLE_ID, PHONE_NUMBER, USERNAME, PASSWORD)			
+    values('$fname', '$lname', '$role', '$phonenumber','$username','$password')";
     if($conn -> query($sql) === TRUE) {
         $data['message'] = 'Success!';
     }
