@@ -37,6 +37,7 @@ In this section, list and describe the features or functionality that you are wo
 As a Admin an User of the website I should be able to create/ Update/ Delete  Tour Pakages so that every visitor can see the latest tour packages in the website.
 
  (Include more detailed information about Feature 1 here. Provide links to related code files (github) & link to the feature (shell.hamk.fi) ).
+ http://shell.hamk.fi/~kasun23000/PHPFinalProject/PHPWebev/travelPkgs.php
 
 ### Feature 2
 
@@ -65,7 +66,7 @@ admin123
 
 List the database tables that are part of your project. 
 
-- Table 1 (Created By : KASUN CHATHURANGA DISSANAYAKA): TourPlanCard 
+- Table 1 (Created By : KASUN CHATHURANGA DISSANAYAKA): TOUR_PLAN_CARDS
 - Table 2 (Created By): MUJITHA MANORATHNA: Staff_role 
 - Table 3 (Created By): MUJITHA MANORATHNA: Customer_Booking 
 - Table 4 (Created By): DULSHAN WELENGODA: SERVICES_INFO 
@@ -81,7 +82,7 @@ List the database tables that are part of your project.
 
 List and describe any forms that have been created as part of your project. Include details about the purpose of each form and any validation logic.
 
-- Form 1 (Created By KASUN CHATHURANGA DISSANAYAKA): travelPkgs.php: Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
+- Form 1 (Created By KASUN CHATHURANGA DISSANAYAKA): travelPkgs.php: Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/travelPkgs.php | Link to the form (shell.hamk.fi). http://shell.hamk.fi/~kasun23000/PHPFinalProject/PHPWebev/travelPkgs.php| Validations Applied
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 - Form 3: (Created By): DULSHAN WELENGODA Form Name: login.php Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
 - Form 4: (Created By): (Created By ASITHA SANDARUWAN ): staff_reg.php & cus_reg: Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
