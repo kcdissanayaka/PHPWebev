@@ -33,17 +33,16 @@ $conn->close();
                     <div class="row tourPlanCards">
                          <?php 
                             foreach ($tourPlanList as $tourPlan) {
-                                var_dump($tourPlan);
+                               // var_dump($tourPlan);
                                 ?>
                                 <div class="col-md-4">
                                         <div class="card m-4 shadow" style="width: 18rem;">
                                             <div class="card"><img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
                                                 <div class="card-body">
-                                                    <h5 class="card-title">
-                                                        <?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
+                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
                                                     <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
-                                                    <p class="card-text"> <small class="text-muted"> <?php echo "$" .$tourPlan['TOUR_PLN_PERSON_PRICE'] .".00"; ?></p>
-                                                    <a href="#" class="btn btn-warning" onclick="togglepopup()">Edit Plan</a>
+                                                    <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>
+                                                    <a href="#" class="btn btn-warning" onclick="togglepopup()">Edit Record</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -51,7 +50,7 @@ $conn->close();
                                     <?php
                             }
                         ?>
-                        <div class="col-md-4">
+                        <!--<div class="col-md-4">
                             <div class="card m-4 shadow" style="width: 18rem;">
                                 <div class="card"><img class="card-img-top"
                                         src="assets/images/trip-plans-card-img/sri-dalada-maligawa.jpg"
@@ -143,7 +142,7 @@ $conn->close();
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>-->
                         </section> 
 
         

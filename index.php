@@ -1,6 +1,24 @@
 <?php 
-     $title =" Lankan Matka ";
-include 'header.php'; ?>
+$title = "Lankan Matka";
+include 'header.php'; 
+include 'dbkcd.php';
+
+$tourPlanList = array(); // creawted the array to store the data tavle card data receveid from my db.
+
+$query = "SELECT * FROM TOUR_PLAN_CARDS WHERE TOUR_PLN_STATUS ='A'";
+
+$result = $conn->query($query);
+
+if ($result) {
+    // Check if there are rows returned
+    if ($result->num_rows > 0) {
+        $tourPlanList = $result->fetch_all(MYSQLI_ASSOC);
+    }
+}
+
+$conn->close();
+?>
+
         </section>
         <!-- Tour Plan -->
 
@@ -8,12 +26,31 @@ include 'header.php'; ?>
             <div class="tourPlan text-center">
                 <div class="row">
                     <div class="col">
-                        <h1>THRILLING TOUR PLANS</h1>
+                        <h1>PREVIEW TOUR PLANS</h1>
                     </div>
                 </div>
                 <div class="container text-center mt-2">
                     <div class="row tourPlanCards">
-                        <div class="col-md-4">
+                         <?php 
+                            foreach ($tourPlanList as $tourPlan) {
+                               // var_dump($tourPlan);
+                                ?>
+                                <div class="col-md-4">
+                                        <div class="card m-4 shadow" style="width: 18rem;">
+                                            <div class="card"><img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
+                                                    <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
+                                                    <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>
+                                                    <a href="#" class="btn btn-warning" onclick="togglepopup()">Edit Record</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                            }
+                        ?>
+                       <!-- <div class="col-md-4">
                             <div class="card m-4 shadow" style="width: 18rem;">
                                 <div class="card"><img class="card-img-top"
                                         src="assets/images/trip-plans-card-img/sri-dalada-maligawa.jpg"
@@ -107,7 +144,7 @@ include 'header.php'; ?>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div> <!--tourPlan-->
         </section>
 
