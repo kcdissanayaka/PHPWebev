@@ -5,7 +5,7 @@ include 'dbkcd.php';
 
 $tourPlanList = array(); // creawted the array to store the data tavle card data receveid from my db.
 
-$query = "SELECT * FROM TourPlanCard WHERE TOUR_PLN_STATUS ='A'";
+$query = "SELECT * FROM TOUR_PLAN_CARDS WHERE TOUR_PLN_STATUS ='A'";
 
 $result = $conn->query($query);
 
@@ -39,9 +39,11 @@ $conn->close();
                                         <div class="card m-4 shadow" style="width: 18rem;">
                                             <div class="card"><img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
                                                 <div class="card-body">
-                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
+                                                    <h5 class="card-title">
+                                                        <?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
                                                     <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
-                                                    <a href="#" class="btn btn-warning" onclick="togglepopup()">Book Now</a>
+                                                    <p class="card-text"> <small class="text-muted"> <?php echo "$" .$tourPlan['TOUR_PLN_PERSON_PRICE'] .".00"; ?></p>
+                                                    <a href="#" class="btn btn-warning" onclick="togglepopup()">Edit Plan</a>
                                                 </div>
                                             </div>
                                         </div>

@@ -23,9 +23,9 @@ include 'dbkcd.php';
    /* Define an SQL query to insert data into the 'studentsinfo' table
    //$sql = "INSERT INTO studentsinfo (first_name, last_name, city, groupId)
    VALUES ('$fname', '$lname', '$city', '$grpid')";*/
-   $sql= "INSERT INTO TourPlanCard (tour_pln_title,tour_pln_description,tour_pln_image,tour_pln_days,tour_pln_person_price,
-   tour_pln_created_by,tour_pln_created_date,tour_pln_modified_by,tour_pln_modified_date,tour_pln_row_id,tour_pln_status) 
-   VALUES('$plnname','$plnummary','$plnimage','$plndays','$plnprice','kasun',NOW(),null,null,null,'$plnstatus')";
+   $sql= "INSERT INTO TOUR_PLAN_CARDS (tour_pln_title,tour_pln_description,tour_pln_image,tour_pln_days,tour_pln_person_price,
+   tour_pln_created_by,tour_pln_created_date,tour_pln_modified_by,tour_pln_modified_date,tour_pln_row_id,tour_pln_status,TOUR_PLN_IMG_TEXT) 
+   VALUES('$plnname','$plnummary','$plnimage','$plndays','$plnprice',1,NOW(),null,null,null,'$plnstatus','$plnimageText')";
 
    // Execute the SQL query using the database connection
     if ($conn->query($sql)===TRUE) {
