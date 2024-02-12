@@ -1,45 +1,5 @@
-<?php
-session_start();
-
-include('includes/constants.php'); 
-
-// UAC
-if(isset($_SESSION["emploggedin"])){
-
-  if($_SESSION["emploggedin"] === false)
-  {
-    header("location: login.php");
-    exit;
-  }
-  else
-  {
-    if($_SESSION["empRole"] == Admin)
-    {
-      header("location: index.php");
-      exit;
-    }
-    elseif($_SESSION["empRole"] == Moderator)
-    {
-      header("location: index-moderator.php");
-      exit;
-    }
-  }
-
-
-}
-else
-{
-  header("location: login.php");
-  exit;
-}
-
-
-
-
-?>
 <?php 
-    $title ="Create Data";
-    include 'includes/header.php'; 
+include 'includes/header.php';
 ?>
 
 <h2>Input Your Information Below:</h2><br>
