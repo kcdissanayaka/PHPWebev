@@ -1,7 +1,7 @@
 <?php 
 $title = "Lankan Matka";
 include 'header.php'; 
-include 'dbkcd.php';
+include 'db.php';
 
 $tourPlanList = array(); // creawted the array to store the data tavle card data receveid from my db.
 

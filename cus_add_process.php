@@ -9,10 +9,11 @@ if (isset($_POST['firstname'])) {
     $fname= $_POST['firstname'];
     $lname= $_POST['lastname'];
     $email= $_POST['email'];
+    $username= $_POST['username'];
     $password= $_POST['password'];
     
-    $sql="insert into customer_reg (first_name, last_name,email, password)			
-    values('$fname', '$lname', '$email', '$password')";
+    $sql="insert into CUSTOMER_REG (FIRST_NAME, LAST_NAME,EMAIL,USERNAME, PASSWORD)			
+    values('$fname', '$lname', '$email', '$username', '$password')";
     if($conn -> query($sql) === TRUE) {
         $data['message'] = 'Success!';
     }

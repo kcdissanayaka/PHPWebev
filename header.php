@@ -101,6 +101,10 @@
 						<div class="form-group">
 							<label for="email">Email</label>
 							<input type="text" name="email" class="form-control" id="email" required>
+						</div>
+                        <div class="form-group">
+							<label for="username">Username</label>
+							<input type="text" name="username" class="form-control" id="username" required>
 						</div>	
                         <div class="form-group">
 							<label for="password">Password</label>
@@ -125,6 +129,7 @@ $(document).ready(function () {
       firstname: $("#firstname").val(),
       lastname: $("#lastname").val(),
       email: $("#email").val(),
+      username: $("#username").val(),
       password: $("#password").val(),
     };
 
