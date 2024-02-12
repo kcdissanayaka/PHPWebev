@@ -26,7 +26,7 @@ $conn->close();
             <div class="tourPlan text-center">
                 <div class="row">
                     <div class="col">
-                        <h1>PREVIEW TOUR PLANS</h1>
+                        <h1>TOUR PLANS</h1>
                     </div>
                 </div>
                 <div class="container text-center mt-2">
@@ -50,7 +50,7 @@ $conn->close();
                                     <?php
                             }
                         ?>
-                       <!-- <div class="col-md-4">
+                        <!--<div class="col-md-4">
                             <div class="card m-4 shadow" style="width: 18rem;">
                                 <div class="card"><img class="card-img-top"
                                         src="assets/images/trip-plans-card-img/sri-dalada-maligawa.jpg"
@@ -143,8 +143,8 @@ $conn->close();
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>-->
+                    </div>-->
+                </div>
             </div> <!--tourPlan-->
         </section>
 

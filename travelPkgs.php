@@ -4,10 +4,13 @@ include 'header.php';
 include 'dbkcd.php';
 
 $tourPlanList = array(); // creawted the array to store the data tavle card data receveid from my db.
-
+$allTourPlns = array();
 $query = "SELECT * FROM TOUR_PLAN_CARDS WHERE TOUR_PLN_STATUS ='A'";
+$quer2 = "SELECT * FROM TOUR_PLAN_CARDS";
 
 $result = $conn->query($query);
+
+
 
 if ($result) {
     // Check if there are rows returned
@@ -16,7 +19,7 @@ if ($result) {
     }
 }
 
-$conn->close();
+//$conn->close();
 ?>
 
         </section>
@@ -30,10 +33,10 @@ $conn->close();
                     </div>
                 </div>
                 <div class="container text-center mt-2">
-                    <div class="row tourPlanCards">
+                    <div class="row tourPlanCards mx-auto">
                          <?php 
                             foreach ($tourPlanList as $tourPlan) {
-                               // var_dump($tourPlan);
+                              // var_dump($tourPlan);
                                 ?>
                                 <div class="col-md-4">
                                         <div class="card m-4 shadow" style="width: 18rem;">
@@ -42,7 +45,8 @@ $conn->close();
                                                     <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
                                                     <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
                                                     <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>
-                                                    <a href="#" class="btn btn-warning" onclick="togglepopup()">Edit Record</a>
+                                                    <!--<a href="#" class="btn btn-warning" onclick="togglepopup()">Edit Record</a>-->
+                                                    <button type="submit" name ="eidtRec" class="btn btn-warning mt-2 mr-2">Edit Record</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -50,22 +54,7 @@ $conn->close();
                                     <?php
                             }
                         ?>
-                        <!--<div class="col-md-4">
-                            <div class="card m-4 shadow" style="width: 18rem;">
-                                <div class="card"><img class="card-img-top"
-                                        src="assets/images/trip-plans-card-img/sri-dalada-maligawa.jpg"
-                                        alt="Temple of tooth">
-                                    <div class="card-body">
-                                        <h5 class="card-title">Kandy</h5>
-                                        <p class="card-text">The Temple of the Sacred Tooth Relic, or Sri Dalada
-                                            Maligawa,
-                                            is a Buddhist temple in Kandy,
-                                            Sri Lanka</p>
-                                        <a href="#" class="btn btn-warning" onclick="togglepopup()">Edit Plan</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!--
                         <div class="col-md-4">
                             <div class="card m-4 shadow" style="width: 18rem;">
                                 <div class="card"><img class="card-img-top"
@@ -148,63 +137,113 @@ $conn->close();
         
     <!-- Services -->
     <!-- From Manage Tour Plans -->
-        <section id="services">
+        <section id="operation">
             <div class="service-header">
                 <div class="row">
                     <div class="col">
                         <h1>Crate Travel Plan</h1>
                     </div>
                 </div>
-                
-                    <form name = "ManageTourPlan" id="myForm" class="row text-left  m-3" method="post" action="processTurpkg.php" enctype="multipart/form-data">
+                <div class="col-md-12">
+                       <? // SQL query to retrieve data from the 'studentsinfo' table
+                                
+                               
+
+                                //Execute the SQL query and store the result
+                                    $result2 = $conn->query($quer2);
+                                    
+
+                                if ($result2->num_rows > 0) {
+                                    $allTourPlns =$result2->fetch_all(MYSQLI_ASSOC);
+                                    var_dump ($result2);
+                                    echo "<table class='table'>
+                                            <thead>
+                                                <tr>
+                                                    <th>Plan ID</th>
+                                                    <th>Plan Title</th>
+                                                    <th>Plan Days</th>
+                                                    <th>Plan Summary</th>
+                                                    <th>Plan Price</th>
+                                                    <th>Plan Image Text</th>
+                                                    <th>Plan Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>";
+
+                                            while ($row = $result->fetch_assoc()) {
+                                                echo "<tr> 
+                                              
+                                                <td>{$row['TOUR_PLN_ID']}</td>
+                                                <td>{$row['TOUR_PLN_TITLE']}</td>
+                                                <td>{$row['TOUR_PLN_DAYS']}</td>
+                                                <td>{$row['TOUR_PLN_DESCRIPTION']}</td>
+                                                <td>{$row['TOUR_PLN_PERSON_PRICE']}</td>
+                                                <td>{$row['OUR_PLN_IMG_TEXT']}</td>
+                                                <td>{$row['TOUR_PLN_STATUS']}</td>
+                                            </tr>";
+                                    }
+
+                                    echo "</tbody></table>";
+                                } else {
+                                    // Display a message if no results are found
+                                    echo "No results";
+                                }
+                                // close the connection when done
+                                $conn->close(); 
+                        ?>
+                                   
+
+                            </div>
+                        
+                            
+                    <form name = "ManageTourPlan" id="myForm" class="row text-left mx-auto" method="post" action="processTurpkg.php" enctype="multipart/form-data">
                        
                             <div class=" col-md-4 pb-4">
                                 <label for="tourPlnTitle" class="form-label">Plan Name</label>
-                                <input type="text" class="form-control" name="tourPlnTitle" id="tourPlnTitle">
+                                <input type="text" class="form-control"  name="tourPlnTitle" id="tourPlnTitle" required>
                             </div>
                             <div class=" col-md-4 pb-4">
                                 <label for="plnDays" class="form-label">Number of Days</label>
-                                <input type="number" class="form-control" name="plnDays" id="plnDays">
+                                <input type="number" class="form-control" name="plnDays" id="plnDays" required>
                             </div>
                             <div class=" col-md-4 pb-4">
                                 <label for="plnprice" class="form-label">Price</label>
-                                <input type="number" class="form-control" name="plnprice" id="plnprice">
+                                <input type="number" class="form-control" name="plnprice" id="plnprice" required>
                             </div>
                                                 
                             <div class="col-md-12 pb-4">
                                 <label for="plnSummary" class="form-label">Tour Plan Summary</label>
-                                <textarea class="form-control" name="plnSummary" rows="3" id="plnSummary"></textarea>
+                                <textarea class="form-control" name="plnSummary" rows="3" id="plnSummary"  required></textarea>
                             </div>
                             
                                 <div class="input-group col-md-12 pb-4">
-                                <input type="file" class="form-control" name="image" aria-describedby="submit" aria-label="Upload" id="image">
+                                <input type="file" class="form-control" name="image" aria-describedby="submit" aria-label="Upload" id="image" required>
                                 
                             </div>
                              <div class="col-md-12 pb-4">
                                 <label for="imageText" class="form-label">Image Description</label>
-                                <textarea class="form-control" name="imageText" rows="3" id="imageText"></textarea>
+                                <textarea class="form-control" name="imageText" rows="3" id="imageText" required></textarea>
                                 
                             </div>
 
                             <div class=" col-md-4 pb-4">
                                 <label for="plnstatus" class="form-label">Status</label>
-                                <select class="form-control" id="plnstatus" name="plnstatus">
+                                <select class="form-control" id="plnstatus" name="plnstatus" required>
                                             <option value="A">ACTIVE</option>
                                             <option value="I">INACTIVE</option>
 
                                 </select>
+                            <div class= "col-mb-12 pb-4" >
 
-
-                            <div class=" my-4">
-                            <button type="submit" name ="submit" class="btn btn-warning">Create Plan</button>
-
-                            <button type="button" value="Submit" name ="clear" id ="clear" onclick="resetform()" class="btn btn-warning">Clear Form</button>
-                             
-                            </div >
-
+                                <button type="submit" name ="submit" class="btn btn-success mt-2 mt-2 mr-2">Create Plan</button>
+                                <button type="submit" name ="submit" class="btn btn-warning mt-2 mr-2">Update Plan</button>
+                                <button type="submit" name ="submit" class="btn btn-danger mt-2 mr-2">Delete Plan</button>
+                                <button type="button" name ="clear" value="Submit"  id ="clear" onclick="resetform()" class="btn btn-primary  mr-2 mt-2">Clear Form</button>
+                            </div>
+                                
                             
-
                     </form>
+                </div>
 
                                   
             </div> <!--Services-->
