@@ -1,22 +1,22 @@
 <?php
-session_start();
+// session_start();
 
-include('includes/constants.php'); 
+// include('includes/constants.php'); 
 
-if(isset($_SESSION["emploggedin"])){
+// if(isset($_SESSION["emploggedin"])){
 
-	if($_SESSION["emploggedin"] === false)
-	{
-		header("location: login.php");
-		exit;
-	}
+// 	if($_SESSION["emploggedin"] === false)
+// 	{
+// 		header("location: login.php");
+// 		exit;
+// 	}
 
-}
+// }
 
 require_once "db.php";
 
 $emp_id=$_GET['emp_id'];
-$sql = "SELECT * FROM STAFFREG where id=$emp_id";
+$sql = "SELECT * FROM STAFFREG where ID=$emp_id";
 $result = $conn->query($sql);
 if($result->num_rows !=1){
 	die('id is not in database');
@@ -25,7 +25,7 @@ if($result->num_rows !=1){
 $data = $result->fetch_assoc();
 
 include('includes/header.php'); 
-$update_message = "";
+$delete_message = "";
 ?>
 
 <div class="container-fluid">
@@ -33,7 +33,7 @@ $update_message = "";
 	<div class="card shadow mb-4">
 
 		<div class="card-body">
-			<h2 class="title text-center">Edit User</h2>
+			<h2 class="title text-center">Delete User</h2>
 			<div class="table-responsive">
 
 				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -47,7 +47,7 @@ $update_message = "";
 				<input type="hidden" name="emp_id" value="<?php echo"$emp_id";?>">
 				<div class="form-group">
 					<label for="name">Username</label>
-					<input type="text" class="form-control" name="username" id="username" value="<?= $data['USERNAME']?>">
+					<input type="text" class="form-control" name="username" id="username" value="<?= $data['USERNAME']?>" disabled>
 				</div>
 
 				<div class="form-group">
@@ -71,17 +71,17 @@ $update_message = "";
 
 				<div class="form-group">
 					<label for="name">First Name</label>
-					<input type="text" class="form-control" name="first_name" id="first_name"value="<?= $data['FIRST_NAME']?>">
+					<input type="text" class="form-control" name="first_name" id="first_name"value="<?= $data['FIRST_NAME']?>" disabled>
 				</div>
         <div class="form-group">
 					<label for="name">Last Name</label>
-					<input type="text" class="form-control" name="last_name" id="last_name"value="<?= $data['LAST_NAME']?>">
+					<input type="text" class="form-control" name="last_name" id="last_name"value="<?= $data['LAST_NAME']?>" disabled>
 				</div>
 				<div class="form-group">
 					<label for="name">Contact Number</label>
-					<input type="text" class="form-control" name="phone_number" id="phone_number"value="<?= $data['PHONE_NUMBER']?>">
+					<input type="text" class="form-control" name="phone_number" id="phone_number"value="<?= $data['PHONE_NUMBER']?>" disabled>
 				</div>
-				<button type="update" value="Update" name="Update" class="btn btn-primary btn-block">Update</button>
+				<button type="delete" value="Delete" name="Delete" class="btn btn-danger btn-block">Delete</button>
 				<button type="button" class="btn btn-secondary btn-block" onclick="history.back();"> Back </button>
 				
 			</form>
@@ -92,29 +92,19 @@ $update_message = "";
 </table>
 </div></div></div>
 <?php 
-if(isset($_POST['Update'])){
-    $param_emp_id=$_POST["emp_id"];
-    $param_username = $_POST["username"];
-    $param_Fname = $_POST["first_name"];
-    $param_Lname = $_POST["last_name"];
-    $param_contact_number = $_POST["phone_number"];
-    $param_role_id = $_POST["role_id"];
+if(isset($_POST['Delete'])){
+  $param_emp_id=$_POST["emp_id"];
 
-    $sql = "UPDATE STAFFREG SET `USERNAME`='$param_username',
-                                `FIRST_NAME`='$param_Fname',
-                                `LAST_NAME`='$param_Lname',
-                                `PHONE_NUMBER`='$param_contact_number',
-                                `ROLE_ID`='$param_role_id'
-                                WHERE ID=$param_emp_id";     
+  $sql = "DELETE FROM STAFFREG WHERE ID=$param_emp_id";     
 
-if(mysqli_query($conn, $sql)){
-	$update_message = "<div class='alert alert-success'>Your information is updated successfully</div>";
-} else {
-	$update_message = "<div class='alert alert-danger'>Error updating record: " . mysqli_error($conn) . "</div>";
-}
+  if(mysqli_query($conn, $sql)){
+      $delete_message = "<div class='alert alert-success'>User deleted successfully</div>";
+  } else {
+      $delete_message = "<div class='alert alert-danger'>Error deleting user: " . mysqli_error($conn) . "</div>";
+  }    
 }
 
-echo $update_message;
+echo $delete_message;
 
 // Close connection
 mysqli_close($conn);

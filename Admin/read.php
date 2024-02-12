@@ -54,7 +54,7 @@ require_once "db.php";
               echo '<input type="hidden" name="edit_id" value="">';
               echo "<div class='btn-group'>";
               echo "<a class='btn btn-success' href='./edituser.php?emp_id=" .$row["ID"] . "'>Edit</a>";
-              echo "<a class='btn btn-danger'href='./deleteusers.php?emp_id=" .$row["ID"] . "'>Delete</a>";
+              echo "<a class='btn btn-danger'href='./deleteuser.php?emp_id=" .$row["ID"] . "'>Delete</a>";
               echo"</div>";
 
               echo '</form>';
