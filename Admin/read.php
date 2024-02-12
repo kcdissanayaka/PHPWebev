@@ -1,6 +1,6 @@
 <?php
 $title = "Read Data";
-include 'layout/header.php';
+include 'includes/header.php';
 include 'db.php';
 
 // SQL query to retrieve data from the 'studentsinfo' table
@@ -55,5 +55,5 @@ if ($result->num_rows > 0) {
 // Close the database connection
 $conn->close();
 
-include 'layout/footer.php';
+include 'includes/footer.php';
 ?>

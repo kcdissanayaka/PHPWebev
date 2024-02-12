@@ -6,6 +6,12 @@
     <title><?php echo $title ?></title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap">
+    <link rel="stylesheet" href="styles/styles.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         .footer {
             position: fixed;
@@ -23,6 +29,9 @@
             margin-top: 0; /* Remove margin at the top */
         }
     </style>
+    <?php 
+    include 'db.php';
+?>
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -66,7 +75,7 @@
             <div class="col-md-3 col-lg-2 p-0">
                 <div class="side-pane d-flex flex-column">
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="../ex7/index.php">Create User profile</a></li>
+                        <li class="list-group-item"><a href="cus_reg.php" data-toggle="modal" data-target="#contact-modal">Create User profile</a></li>
                         <li class="list-group-item"><a href="../ex7/read.php">Manage User</a></li>
                     </ul>
                 </div>
@@ -76,5 +85,96 @@
             <div class="col-md-9 col-lg-10">
                 <div class="container">
 
+                <div id="contact">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<div id="contact-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+                <h3>Staff Registration</h3>
+					<a href="" class="close" data-dismiss="modal">×</a>
+				</div>
+				<form id="staffreg" name="contact" role="form">
+					<div class="modal-body">				
+						<div class="form-group">
+							<label for="firstname">First Name</label>
+							<input type="text" name="fname" class="form-control" id="fname" required>
+						</div>
+						<div class="form-group">
+							<label for="lastname">Last Name</label>
+							<input type="text" name="lname" class="form-control" id="lname" required>
+						</div>
+						<div class="form-group">
+                            <label for="role">Role:</label>
+                            <select class="form-control" name="role" id="role" required>
+                            <?php 
+                            $query = mysqli_query($conn, 'SELECT * FROM STAFFROLE');
+                            if ($query) {
+                            while ($row = mysqli_fetch_assoc($query)) {
+                            ?>
+                            <option value="<?php echo $row['ROLEID']; ?>"><?php echo $row['ROLE_NAME']; ?></option>
+                            <?php
+                            }
+                            } else {
+                            echo "Error: " . mysqli_error($conn);
+                            }
+                            ?>
+                            </select>
+</div>	
+<div class="form-group">
+    <label for="phonenumber">Phone Number:</label>
+    <input type="number" class="form-control" name="phonenumber" id="phonenumber" required>
+</div>
 
-                
+<div class="form-group">
+    <label for="username">username:</label>
+    <input type="text" class="form-control" name="username" id="username" required>
+</div>
+
+<div class="form-group">
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" name="password" id="pw" required>
+</div>
+					<div class="modal-footer">					
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<input type="submit" class="btn btn-success" id="submit">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+    <script>
+$(document).ready(function () {
+  $("#staffreg").submit(function (event) {
+    event.preventDefault();
+
+    var formData = {
+      firstname: $("#fname").val(),
+      lastname: $("#lname").val(),
+      role: $("#role").val(),
+      phonenumber: $("#phonenumber").val(),
+      username: $("#username").val(),
+      password: $("#pw").val(),
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "staff_reg_process.php",
+      data: formData,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+        Swal.fire({
+        title: "Added",
+        text: "Your record has been addded.",
+        icon: "success"
+        });  
+
+        $("#staffreg")[0].reset();
+    });
+
+  });
+});
+</script>
+
