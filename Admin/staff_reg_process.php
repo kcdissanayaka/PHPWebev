@@ -12,9 +12,11 @@ if (isset($_POST['firstname'])) {
     $phonenumber= $_POST['phonenumber'];
     $username= $_POST['username'];
     $password= $_POST['password'];
+
+    $hashed_password = password_hash($password, PASSWORD_DEFAULT);
     
     $sql="insert into STAFFREG (FIRST_NAME, LAST_NAME, ROLE_ID, PHONE_NUMBER, USERNAME, PASSWORD)			
-    values('$fname', '$lname', '$role', '$phonenumber','$username','$password')";
+    values('$fname', '$lname', '$role', '$phonenumber','$username','$hashed_password')";
     if($conn -> query($sql) === TRUE) {
         $data['message'] = 'Success!';
     }
