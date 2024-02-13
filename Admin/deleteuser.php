@@ -1,17 +1,17 @@
 <?php
-// session_start();
+session_start();
 
-// include('includes/constants.php'); 
+include('includes/constants.php'); 
 
-// if(isset($_SESSION["emploggedin"])){
+if(isset($_SESSION["emploggedin"])){
 
-// 	if($_SESSION["emploggedin"] === false)
-// 	{
-// 		header("location: login.php");
-// 		exit;
-// 	}
+	if($_SESSION["emploggedin"] === false)
+	{
+		header("location: login.php");
+		exit;
+	}
 
-// }
+}
 
 require_once "db.php";
 
