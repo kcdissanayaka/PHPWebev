@@ -1,20 +1,13 @@
 <?php
-   include 'header.php';
-   // Start the session if not already started
-   if (!isset($_SESSION)) {
-      session_start();
-   }
-   // Check if the user is logged in, otherwise redirect to the login page
-   if (!isset($_SESSION['valid'])) {
-      header('Location: user_login.php');
-      exit();
-   }
-   // Get the user's name and profile picture from the database
-   // This is a placeholder code, you need to replace it with your own database connection and query
-   $db = new PDO('mysql:host=localhost;dbname=travel_booking_system', 'root', '');
-   $stmt = $db->prepare('SELECT name, profile_pic FROM user WHERE email = ?');
-   $stmt->execute([$_SESSION['username']]);
-   $user = $stmt->fetch();
+session_start(); // Start the session
+require('db.php');
+
+// Check if user is not logged in, display message and exit
+if(!isset($_SESSION['isUserLoggedIn']) || $_SESSION['isUserLoggedIn'] !== true){
+    echo "<p>User is not logged in. Please log in first.</p>";
+    exit();
+}
+
 ?>
 
 <html lang="en">
@@ -201,7 +194,7 @@
                   <a class="nav-link" href="user_feedback.php">Feedback</a>
                </li>
                <li class="nav-item">
-                  <a class="nav-link" href="user_logout.php">Logout</a>
+                  <a class="nav-link" href="index.php">Logout</a>
                </li>
             </ul>
          </div>
@@ -209,7 +202,8 @@
       <!-- Greeting -->
       <div class="row">
          <div class="col-md-12">
-            <h1>Welcome, <?php echo $user['name']; ?>!</h1>
+         <h1>Welcome Customer</h1>
+         <h2><?=$_SESSION['emailId']?></h2>
             <img src="<?php echo $user['profile_pic']; ?>" alt="Profile Picture" class="rounded-circle" width="100" height="100">
          </div>
       </div>

@@ -1,3 +1,5 @@
+<?php
+session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +42,7 @@
                         <li class="hideOnMobile"><a href="#services">Services</a></li>
                         <li class="hideOnMobile"><a href="#gallery">Gallery</a></li>
                         <li class="hideOnMobile"><a href="#footer">Contact Us</a></li>
-                        <li class="hideOnMobile"><a href=""><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+                        <li class="hideOnMobile"><a href="login.php" data-toggle="modal" data-target="#loginModal"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
                         <li class="hideOnMobile"><a href="cus_reg.php" data-toggle="modal" data-target="#contact-modal">Register</a></li>
                         <li onclick="showSidebar()" class="menu-button"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 -960 960 960" width="26"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg></a></li>
                         </ul>
@@ -153,3 +155,92 @@ $(document).ready(function () {
 });
 </script>
 	
+
+<?php
+require('db.php');
+
+// Ensure the emailid key exists in $_POST
+if(isset($_POST['login']) && isset($_POST['emailid']) && isset($_POST['password'])){
+    $email = trim($_POST['emailid']); // Trim to remove whitespace
+    $password = $_POST['password'];
+
+    // Check if database connection exists
+    if ($conn) {
+        $query = "SELECT * FROM CUSTOMER_REG WHERE EMAIL = ?";
+        $stmt = $conn->prepare($query);
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $user = $result->fetch_assoc();
+
+        if($user){
+            // Verify the password
+            if($password === $user['PASSWORD']){
+                $_SESSION['isUserLoggedIn'] = true;
+                $_SESSION['emailId'] = $email;
+                echo "<script>window.location.href='homepage.php?user_loggedin';</script>";
+                exit();
+            } else {
+                // Incorrect password
+                $error = "Incorrect Email or Password !";
+            }
+        } else {
+            // User not found
+            $error = "User not found !";
+        }
+    } else {
+        // Database connection issue
+        $error = "Database connection error.";
+    }
+}
+?>
+
+ <!-- User Login Modal -->
+ <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header justify-content-center">
+                <h5 class="modal-title" id="exampleModalLabel">Customer Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <?php if(isset($error)){ ?>
+                    <p style="color:red;text-align:center;"><?php echo $error; ?></p>
+                <?php } ?>
+                <form method="post" class="text-center">
+                    <div class="form-group text-center">
+                        <div style="margin-bottom: 20px;">
+                            <i class="fas fa-user-circle" style="font-size: 100px; color: #007bff;"></i>
+                        </div>
+                        <input type="email" name="emailid" placeholder="Email" class="form-control mb-2 mx-auto" style="max-width: 250px;" required>
+                    </div>
+                    <div class="form-group text-center">
+                        <input type="password" name="password" placeholder="Password" class="form-control mb-2 mx-auto" style="max-width: 250px;" required>
+                    </div>
+                    <div class="row justify-content-center">
+                        <a href="cus_reg.php" id="createAccountBtn" data-toggle="modal" data-target="#contact-modal" class="btn btn-primary mr-2">Create Account</a>
+                        <input type="submit" value="Login" name="login" class="btn btn-primary">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function(){
+        $('#createAccountBtn').click(function(){
+            $('#loginModal').modal('hide');
+        });
+    });
+</script>
+
+
+
+
+
+
+
