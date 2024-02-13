@@ -21,23 +21,78 @@ if ($result) {
 //$conn->close();
 ?>
 
-<section id="plan">
+        </section>
+        <!-- Tour Plan -->
+
+        <section id="plan">
             <div class="tourPlan text-center">
                 <div class="row">
                     <div class="col">
-                        <h1>EXERCISE 7- Read Data From the Database</h1>
+                        <h1>PREVIEW TOUR PLANS</h1>
                     </div>
                 </div>
-                <div class="container text-left">
-                    <div class="row tourPlanCards">
-                        <div class="col-md-12">
+                <div class="container text-center mt-2">
+                    <div class="row tourPlanCards mx-auto">
+                         <?php 
+                            foreach ($tourPlanList as $tourPlan) {
+                              // var_dump($tourPlan);
+                                ?>
+                                <div class="col-md-4">
+                                        <div class="card m-4 shadow" style="width: 18rem;">
+                                            <div class="card"><img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
+                                                    <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
+                                                    <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>
+                                                    <a href="href='./edituser.php?emp_id=" class="btn btn-warning" onclick="togglepopup()">Edit Record</a>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <?php
+                            }
+                        ?>
+                        <!--
+                        
+                        <div class="col-md-4">
+                            <div class="card m-4 shadow" style="width: 18rem;">
+                                <div class="card"><img class="card-img-top"
+                                        src="assets/images/trip-plans-card-img/dolphin-watching.jpg"
+                                        alt="whale-and-dolphin-watching">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Galle</h5>
+                                        <p class="card-text">Not only can you see them, you can also swim with dolphins
+                                            in
+                                            Sri Lanka,
+                                            which is an never to be forgotten!</p>
+                                        <a href="#" class="btn btn-warning">Book Now</a>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+                        </section> 
+
+        
+    <!-- Services -->
+    <!-- From Manage Tour Plans -->
+        <section id="operation">
+            <div class="service-header">
+                <div class="row">
+                    <div class="col">
+                        <h1>Crate Travel Plan</h1>
+                    </div>
+                </div>
+                <div class="col-md-12">
                        <? // SQL query to retrieve data from the 'studentsinfo' table
-                                $sql = "SELECT * FROM TOUR_PLAN_CARDS";
+                                
+                               
 
-                                // Execute the SQL query and store the result
-                                $result = $conn->query($sql);
+                                //Execute the SQL query and store the result
+                                   // $result = $conn->query($quer2);
+                                    
 
-                                if ($result->num_rows > 0) {
+                                   if ($result->num_rows > 0) {
                                     echo "<table class='table'>
                                             <thead>
                                                 <tr>
@@ -53,10 +108,10 @@ if ($result) {
                                             <tbody>";
 
                                     while ($row = $result->fetch_assoc()) {
-                                        //var_dump($row);
+                                        var_dump($row);
                                         echo "<tr> 
-                                                
                                                 <td><a href='updatesingle.php?id=$row[id]'>$row[id]</a></td>
+                                                <td>{$row['TOUR_PLN_ID']}</td>
                                                 <td>{$row['TOUR_PLN_TITLE']}</td>
                                                 <td>{$row['TOUR_PLN_DESCRIPTION']}</td>
                                                 <td>{$row['TOUR_PLN_DAYS']}</td>
@@ -72,7 +127,10 @@ if ($result) {
                                 }
                                 // close the connection when done
                                 $conn->close(); 
-                        ?>
+                                ?>
+                                   
+
+                            </div>
                         
                             
                     <form name = "ManageTourPlan" id="myForm" class="row text-left mx-auto" method="post" action="processTurpkg.php" enctype="multipart/form-data">
