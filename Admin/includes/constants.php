@@ -7,7 +7,7 @@ if (realpath(__FILE__) == realpath( $_SERVER['SCRIPT_FILENAME'] ) ) {
        }
 
 
-define("Admin", "1");
-define("Moderator", "2");
+define("ADMIN", "1");
+define("MODERATOR", "2");
 
 ?>
