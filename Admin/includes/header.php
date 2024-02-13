@@ -59,14 +59,48 @@
                 <!-- $_SESSION["empid"] -->
                 <a class="dropdown-item" href="edituser.php?emp_id=<?php echo $_SESSION["empid"]?>">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
+                    Edit Profile  
                 </a>
+                <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Logout
+                    </a>    
+                </div>
                 </li>
-                   
                 </ul>
             </div>
         </div>
     </nav>
+
+    <!-- End of Navigation Bar -->
+
+    <!-- User create model -->
+    
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel alert">Are you sure you want to logout?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">×</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                          <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+
+                            <form action="logout.php" method="POST"> 
+
+                              <button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
+
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
 
     <!-- Main Content -->
     <div class="container-fluid mt-5">
@@ -75,7 +109,7 @@
             <div class="col-md-3 col-lg-2 p-0">
                 <div class="side-pane d-flex flex-column">
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="cus_reg.php" data-toggle="modal" data-target="#contact-modal">Create User profile</a></li>
+                        <li class="list-group-item"><a href="index.php" data-toggle="modal" data-target="#contact-modal">Create User profile</a></li>
                         <li class="list-group-item"><a href="read.php">Manage User</a></li>
                     </ul>
                 </div>

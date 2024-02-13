@@ -1,5 +1,5 @@
 <?php
-// ob_start();
+ob_start();
 include('includes/header-cdn.php');
 
  
@@ -53,19 +53,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
-                            // session_start();
+                               session_start();
                             
                             // // Store data in session variables
-                            // $_SESSION["emploggedin"] = true;
-                            // $_SESSION["empid"] = $id;
-                            // $_SESSION["empFirstname"] = $first_name;
-                            // $_SESSION["emplastname"] = $last_name;
-                            // $_SESSION["empRole"] = $role;
-                            // $_SESSION["empPhonenumber"] = $phone_number;
-                            // $_SESSION["empusername"] = $username;                         
+                             $_SESSION["emploggedin"] = true;
+                             $_SESSION["empid"] = $id;
+                             $_SESSION["empFirstname"] = $first_name;
+                             $_SESSION["emplastname"] = $last_name;
+                             $_SESSION["empRole"] = $role;
+                             $_SESSION["empPhonenumber"] = $phone_number;
+                             $_SESSION["empusername"] = $username;                         
 
                             header("location: index.php");
-                        } else{
+                          } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
                         }
@@ -78,11 +78,33 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 echo "Oops! Something went wrong. Please try again later.";
             }
 
+            if(!empty($username_err))
+                {
+                  $_SESSION['status'] = $username_err;
+                }
+
+            if(!empty($password_err))
+                {
+                  $_SESSION['status'] = isset($_SESSION['status'])? $_SESSION['status'] . $password_err: $password_err;
+                }
 
             // Close statement
             mysqli_stmt_close($stmt);
         }
-    }  
+    }
+    else
+        {
+          if(!empty($username_err))
+                {
+                  $_SESSION['status'] = $username_err;
+                }
+
+            if(!empty($password_err))
+                {
+                  $_SESSION['status'] = isset($_SESSION['status'])? $_SESSION['status'] . $password_err: $password_err;
+                }
+        }
+    
     // Close connection
     mysqli_close($conn);
 }
