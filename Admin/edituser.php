@@ -109,13 +109,13 @@ if(isset($_POST['Update'])){
                                 WHERE ID=$param_emp_id";     
 
 if(mysqli_query($conn, $sql)){
-	$update_message = "<div class='alert alert-success'>Your information is updated successfully</div>";
+	$update_message = "<div class='alert alert-success text-center'>Your information is updated successfully</div>";
 } else {
-	$update_message = "<div class='alert alert-danger'>Error updating record: " . mysqli_error($conn) . "</div>";
+	$update_message = "<div class='alert alert-danger text-center'>Error updating record: " . mysqli_error($conn) . "</div>";
 }
 }
 
-echo $update_message;
+echo $update_message;	
 
 // Close connection
 mysqli_close($conn);

@@ -99,14 +99,16 @@ if(isset($_POST['Delete'])){
   $sql = "DELETE FROM STAFFREG WHERE ID=$param_emp_id";     
 
   if(mysqli_query($conn, $sql)){
-      $delete_message = "<div class='alert alert-success'>User deleted successfully</div>";
+      $delete_message = "<div class='alert alert-success text-center'>User deleted successfully</div>";
   } else {
-      $delete_message = "<div class='alert alert-danger'>Error deleting user: " . mysqli_error($conn) . "</div>";
+      $delete_message = "<div class='alert alert-danger text-center'>Error deleting user: " . mysqli_error($conn) . "</div>";
   }    
 }
 
+"<div row>
+<div col md-12 offset-md-3 col-sm-6>
 echo $delete_message;
-
+</div>"
 // Close connection
 mysqli_close($conn);
 
