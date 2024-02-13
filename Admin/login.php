@@ -1,6 +1,8 @@
 <?php
 ob_start();
+session_start();
 include('includes/header-cdn.php');
+include('includes/constants.php');
 
  
 
@@ -55,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Password is correct, so start a new session
                                session_start();
                             
-                            // // Store data in session variables
+                            // Store data in session variables
                              $_SESSION["emploggedin"] = true;
                              $_SESSION["empid"] = $id;
                              $_SESSION["empFirstname"] = $first_name;

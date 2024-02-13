@@ -1,4 +1,5 @@
 <?php 
+$title = "LankanMatka";
 ob_start();
 session_start();
 

@@ -1,4 +1,5 @@
 <?php
+$title = "All Users";
 session_start();
 
 include('includes/header.php'); 
