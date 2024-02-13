@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <?php 
+    $title ="Admin Panel"; ?>
     <title><?php echo $title ?></title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -12,6 +14,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap">
     <link rel="stylesheet" href="styles/styles.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <style>
         .footer {
             position: fixed;
@@ -106,7 +109,7 @@
             <div class="col-md-3 col-lg-2 p-0">
                 <div class="side-pane d-flex flex-column">
                     <ul class="list-group">
-                        <li class="list-group-item"><a href="index.php" data-toggle="modal" data-target="#contact-modal">Create User profile</a></li>
+                        <li class="list-group-item"><a href="index.php" data-toggle="modal" data-target="#staffreg-modal">Create User profile</a></li>
                         <li class="list-group-item"><a href="read.php">Manage User</a></li>
                     </ul>
                 </div>
@@ -118,3 +121,129 @@
 
                 
 
+    <!-- Create User Modal -->
+    <div id="contact">
+	<div id="staffreg-modal" class="modal fade" role="dialog">
+		<div class="modal-dialog modal-dialog-centered">
+			<div class="modal-content">
+				<div class="modal-header">
+                    <h3>Staff Registration</h3>
+					<a href="" class="close" data-dismiss="modal">×</a>
+				</div>
+				<form id="staffreg" name="contact" role="form">
+					<div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstname">First Name</label>
+                                    <input type="text" name="fname" class="form-control" id="fname" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phonenumber">Phone Number:</label>
+                                    <input type="number" class="form-control" name="phonenumber" id="phonenumber" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="lastname">Last Name</label>
+                                    <input type="text" name="lname" class="form-control" id="lname" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="username">Username</label>
+                                    <input type="text" name="username" class="form-control" id="username" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="role">Role:</label>
+                                    <select class="form-control" name="role" id="role" required>
+                                        <?php 
+                                        $query = mysqli_query($conn, 'SELECT * FROM STAFFROLE');
+                                        if ($query) {
+                                            while ($row = mysqli_fetch_assoc($query)) {
+                                                ?>
+                                                <option value="<?php echo $row['ROLEID']; ?>"><?php echo $row['ROLE_NAME']; ?></option>
+                                                <?php
+                                            }
+                                        } else {
+                                            echo "Error: " . mysqli_error($conn);
+                                        }
+                                        ?>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" class="form-control" id="pw" required>
+                                </div>
+                            </div>
+                        </div>				
+                    </div>
+                    <div class="modal-footer">					
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" class="btn btn-success" id="submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+$(document).ready(function () {
+  $("#staffreg").submit(function (event) {
+    event.preventDefault();
+
+    var formData = {
+      firstname: $("#fname").val(),
+      lastname: $("#lname").val(),
+      role: $("#role").val(),
+      phonenumber: $("#phonenumber").val(),
+      username: $("#username").val(),
+      password: $("#pw").val(),
+    };
+
+    $.ajax({
+      type: "POST",
+      url: "staff_reg_process.php",
+      data: formData,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+        Swal.fire({
+          title: "Added",
+          text: "Your record has been added.",
+          icon: "success",
+          position: "center",
+          customClass: {
+            popup: 'left-align'
+          }
+        });  
+
+        $("#staffreg")[0].reset();
+    });
+
+  });
+});
+</script>
+
+<style>
+.left-align {
+  left: -0.5% !important;
+}
+</style>
+
+
+
+
+	
