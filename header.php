@@ -13,7 +13,7 @@ session_start();?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap">
     <link rel="stylesheet" href="styles/styles.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <body>
         
@@ -207,8 +207,21 @@ if(isset($_POST['login']) && isset($_POST['emailid']) && isset($_POST['password'
             </div>
             <div class="modal-body">
                 <?php if(isset($error)){ ?>
-                    <p style="color:red;text-align:center;"><?php echo $error; ?></p>
+                <script>
+                    Swal.fire({
+                        title: 'Error',
+                        text: '<?php echo $error; ?>',
+                        icon: 'error',
+                        showCancelButton: true,
+                        confirmButtonText: 'Login Again',
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $('#loginModal').modal('show');
+                        }
+                    });
+                </script>
                 <?php } ?>
+
                 <form method="post" class="text-center">
                     <div class="form-group text-center">
                         <div style="margin-bottom: 20px;">
@@ -228,6 +241,7 @@ if(isset($_POST['login']) && isset($_POST['emailid']) && isset($_POST['password'
         </div>
     </div>
 </div>
+
 
 
 <script>
