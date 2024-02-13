@@ -1,4 +1,5 @@
 <?php
+$title = "Edit User";
 session_start();
 
 include('includes/constants.php'); 
