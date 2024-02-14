@@ -62,6 +62,7 @@ GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/readTrvPkgs.ph
 Admin panel: this admin dashboard for the all the backend tasks like employee profile creation, managing, other website managing task like adding new content package, services. 
 
 GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/index.php
+
 login details: 
 admin
 admin123
