@@ -13,7 +13,7 @@ if(isset($_SESSION["emploggedin"])){
   }
 }
 // Include config file
-require_once "db.php";
+require_once "admindb.php";
 
 // Define variables and initialize with empty values
 $username = $password = "";

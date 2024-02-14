@@ -14,7 +14,7 @@ if(isset($_SESSION["emploggedin"])){
 
 }
 
-require_once "db.php";
+require_once "admindb.php";
 
 $emp_id=$_GET['emp_id'];
 $sql = "SELECT * FROM STAFFREG where id=$emp_id";

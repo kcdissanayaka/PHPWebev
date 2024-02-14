@@ -24,7 +24,7 @@ if (isset($_POST['submit'])) {
     $rolename = $_POST['RoleName'];     // First name
 
     // Include the database connection file
-    include 'db.php';
+    include 'admindb.php';
 
     // Define an SQL query to insert data into the 'studentsinfo' table
     $sql = "INSERT INTO STAFFROLE (ROLE_NAME)

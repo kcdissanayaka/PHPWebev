@@ -5,7 +5,7 @@ session_start();
 include('includes/header.php'); 
 
 // Include config file
-require_once "db.php";
+require_once "admindb.php";
 ?>
 
 <div class="container-fluid">

@@ -1,7 +1,7 @@
 <?php
 $title = "Update Data";
 include 'layout/header.php';
-include 'db.php';
+include 'admindb.php';
 
 $a = $_GET['id'];
 $result = mysqli_query($conn,"SELECT * FROM studentsinfo WHERE id= '$a'");
