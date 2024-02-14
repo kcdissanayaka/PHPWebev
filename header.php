@@ -227,7 +227,7 @@ if(isset($_POST['login']) && isset($_POST['emailid']) && isset($_POST['password'
             // Verify the password
             if(password_verify($password, $user['PASSWORD'])){
                 // Password is correct
-                session_start();
+                
                 $_SESSION['isUserLoggedIn'] = true;
                 $_SESSION['emailId'] = $email;
                 echo "<script>window.location.href='homepage.php?user_loggedin';</script>";
