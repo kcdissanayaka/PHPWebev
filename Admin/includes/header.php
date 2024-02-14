@@ -33,7 +33,7 @@
         }
     </style>
     <?php 
-    include 'Admin/includes/admindb.php';
+    include 'admindb.php';
 ?>
 </head>
 <body>
