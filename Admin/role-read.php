@@ -10,10 +10,8 @@ if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
 
 include('includes/header.php'); 
 
-// Include config file
-
+?>
 <div class="container-fluid">
-
   <!-- DataTales Example -->
   <div class="card shadow mb-4">
 
@@ -29,6 +27,7 @@ include('includes/header.php');
               <th> ROLE NAME</th>
               <th> Actions </th>
             </tr>
+
           </thead>
           <tbody>
 

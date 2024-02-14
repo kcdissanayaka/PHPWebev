@@ -26,10 +26,11 @@
             padding: 10px 0;
         }
         .side-pane {
-            background-color: #f8f9fa; /* Light background color */
+            background-color: blue; /* Light background color */
             padding: 20px;
             min-height: 100vh;
             margin-top: 0; /* Remove margin at the top */
+            text-align: center;
         }
     </style>
     <?php 
@@ -56,10 +57,10 @@
                   </span>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="edituser.php?emp_id=<?php echo $_SESSION["empid"]?>">
+                    <a class="dropdown-item" href="edituser.php?emp_id=<?php echo $_SESSION["empid"]?>">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Edit Profile  
-                    </a> -->
+                    </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
