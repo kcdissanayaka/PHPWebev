@@ -113,6 +113,7 @@
                         <li class="list-group-item"><a href="read.php">Manage User</a></li>
                         <li class="list-group-item"><a href="create-role.php">Create Role</a></li>
                         <li class="list-group-item"><a href="role-read.php">Manage Role</a></li>
+                        <li class="list-group-item"><a href="travelPkgs.php">Manage Travel Plans</a></li>
                     </ul>
                 </div>
             </div>
@@ -215,13 +216,29 @@ $(document).ready(function () {
       password: $("#pw").val(),
     };
 
-    $.ajax({
-      type: "POST",
-      url: "staff_reg_process.php",
-      data: formData,
-      dataType: "json",
-      encode: true,
-    }).done(function (data) {
+    // Validation
+    var valid = true;
+    if (formData.firstname.length < 5) {
+      valid = false;
+      showValidationError("First name should be at least 5 characters.");
+    }
+    if (!/[!@#$%^&*(),.?":{}|<>]/.test(formData.password)) {
+      valid = false;
+      showValidationError("Password must include a special character.");
+    }
+    if (!(formData.phonenumber.length >= 9 && formData.phonenumber.length <= 15)) {
+      valid = false;
+      showValidationError("Phone number should be between 9 and 15 digits long.");
+    }
+
+    if (valid) {
+      $.ajax({
+        type: "POST",
+        url: "staff_reg_process.php",
+        data: formData,
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
         Swal.fire({
           title: "Added",
           text: "Your record has been added.",
@@ -230,20 +247,25 @@ $(document).ready(function () {
           customClass: {
             popup: 'left-align'
           }
-        });  
-
+        });
         $("#staffreg")[0].reset();
-    });
-
+      });
+    }
   });
+
+  function showValidationError(message) {
+    Swal.fire({
+      title: "Error",
+      text: message,
+      icon: "error",
+      position: "center",
+      customClass: {
+        popup: 'left-align'
+      }
+    });
+  }
 });
 </script>
-
-<style>
-.left-align {
-  left: -0.5% !important;
-}
-</style>
 
 
 

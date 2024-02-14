@@ -1,7 +1,7 @@
 <?php 
-$title = "Lankan Matka";
-include 'header.php'; 
-include 'dbkcd.php';
+$title = "Lankan Matka- Admin Manaeg Travel Plans";
+include '/header.php'; 
+include 'db.php';
 
 $tourPlanList = array(); // creawted the array to store the data tavle card data receveid from my db.
 $allTourPlns = array();
@@ -54,7 +54,7 @@ if ($result) {
                                     
                                         <div class="col-md-4">
                                             <div class="card mb-4 h-100 shadow">
-                                                <img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
+                                                <img class="card-img-top" src="../assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
                                                 <div class="card-body">
                                                     <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
                                                     <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
@@ -220,6 +220,6 @@ if ($result) {
 
 
 
-<?php include 'footer.php'; ?>
+<?php include '../footer.php'; ?>
 
  
