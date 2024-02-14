@@ -139,13 +139,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="firstname">First Name</label>
-                                    <input type="text" name="fname" class="form-control" id="fname" required>
+                                    <input type="text" name="fname" class="form-control" placeholder="Enter your first name" id="fname" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="phonenumber">Phone Number:</label>
-                                    <input type="number" class="form-control" name="phonenumber" id="phonenumber" required>
+                                    <input type="number" class="form-control" name="phonenumber" placeholder="Enter your phone number" id="phonenumber" required>
                                 </div>
                             </div>
                         </div>
@@ -153,13 +153,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="lastname">Last Name</label>
-                                    <input type="text" name="lname" class="form-control" id="lname" required>
+                                    <input type="text" name="lname" class="form-control" placeholder="Enter your last name" id="lname" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="username">Username</label>
-                                    <input type="text" name="username" class="form-control" id="username" required>
+                                    <input type="text" name="username" class="form-control" placeholder="Enter a username" id="username" required>
                                 </div>
                             </div>
                         </div>
@@ -186,7 +186,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" name="password" class="form-control" id="pw" required>
+                                    <input type="password" name="password" placeholder="Enter a password" class="form-control" id="pw" required>
                                 </div>
                             </div>
                         </div>				
@@ -267,6 +267,11 @@ $(document).ready(function () {
 });
 </script>
 
+<style>
+.left-align {
+  left: -0.5% !important;
+}
+</style>
 
 
 
