@@ -28,7 +28,7 @@ In this section, list and describe the features or functionality that you are wo
 - [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
 - [ ] Feature 2 (Dulshan Pramuditha Welengoda): Customer Login Page Creation | User permissions assignment.
 - [ ] Feature 3 (Govinnage Asitha Sandaruwan): Manage User Registration
-- [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Package Booking Management  
+- [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Package Booking Management | Admin Panel 
 
 > Add features as required. 
 
@@ -42,7 +42,7 @@ As a Admin an User of the website I should be able to create/ Update/ Delete  To
 ### Feature 2
 
 The login page will be created in order to authenticate customers into the web portal after successful validation.
-GitHub Link : 
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php
 The role-read page will create user roles and manage the user roles with delete function.
 GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php
 
@@ -50,14 +50,18 @@ GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-rea
 
 My role in Team 23 is managing user registration. In this feature I will develop user registration and create accounts on the website so they can book travel packages by registering to the site and can access other features as well offered by Lankan Matka travel agency. I make sure the registration process will be smooth and easy for users.
 
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/cus_reg.php
+
 ### Feature 4
 
 Package booking: User package booking management, save the booking details in database, add the card to select multiple packages and finally do the payment and store all the data into the db.   
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/readTrvPkgs.php
 
 ### Feature 5
 
 Admin panel: this admin dashboard for the all the backend tasks like employee profile creation, managing, other website managing task like adding new content package, services. 
 
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/index.php
 login details: 
 admin
 admin123
@@ -87,7 +91,7 @@ List and describe any forms that have been created as part of your project. Incl
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 - Form 3: (Created By): DULSHAN WELENGODA Form Name: login.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php | Link to the form (shell.hamk.fi). | Validations Applied
 - Form 4: (Created By): DULSHAN WELENGODA Form Name: role-read.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php | Link to the form (shell.hamk.fi). | Validations Applied
-- Form 5: (Created By): (Created By ASITHA SANDARUWAN ): staff_reg.php & cus_reg: Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
+- Form 5: (Created By): (Created By ASITHA SANDARUWAN ): staff_reg.php & cus_reg: Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/cus_reg.php | Link to the form (shell.hamk.fi). | Validations Applied
 
 
 
