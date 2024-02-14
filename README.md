@@ -38,6 +38,7 @@ As a Admin an User of the website I should be able to create/ Update/ Delete  To
 
  (Include more detailed information about Feature 1 here. Provide links to related code files (github) & link to the feature (shell.hamk.fi) ).
  http://shell.hamk.fi/~kasun23000/PHPFinalProject/PHPWebev/travelPkgs.php
+ https://github.com/kcdissanayaka/PHPWebev/blob/main/travelPkgs.php
 
 ### Feature 2
 
@@ -84,6 +85,7 @@ List the database tables that are part of your project.
 List and describe any forms that have been created as part of your project. Include details about the purpose of each form and any validation logic.
 
 - Form 1 (Created By KASUN CHATHURANGA DISSANAYAKA): travelPkgs.php: Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/travelPkgs.php | Link to the form (shell.hamk.fi). http://shell.hamk.fi/~kasun23000/PHPFinalProject/PHPWebev/travelPkgs.php| Validations Applied
+Validation 1 . Filed Mandetory Validation - HTML valiation
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 - Form 3: (Created By): DULSHAN WELENGODA Form Name: login.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php | Link to the form (shell.hamk.fi). | Validations Applied
 - Form 4: (Created By): DULSHAN WELENGODA Form Name: role-read.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php | Link to the form (shell.hamk.fi). | Validations Applied

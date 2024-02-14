@@ -1,8 +1,8 @@
 <?php
-$servername = "php24-db-1";  /*phpsrv-db-1 ' * mujitha db php24-db-1*/
-$username = "LankanMatka";
+$servername = "phpsrv-db-1";  /*phpsrv-db-1 ' * mujitha db php24-db-1*/
+$username = "lankanmtka";
 $password = "1234";
-$dbname = "LankanMatka";
+$dbname = "lankanmtka";
 
 // create db connection
 $conn = new mysqli($servername, $username, $password, $dbname);
