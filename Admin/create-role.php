@@ -1,11 +1,11 @@
 <?php 
-    $title ="Create Role";
-    
-    if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+$title ="Create Role";
+
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
   
-        header('Location: login.php');
-        exit;
-      }
+    header('Location: login.php');
+    exit;
+}
       
     include('includes/header.php');
 

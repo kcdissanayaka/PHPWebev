@@ -3,30 +3,10 @@ $title = "LankanMatka";
 ob_start();
 session_start();
 
-if(isset($_SESSION["emploggedin"])){
-
-  if($_SESSION["emploggedin"] === false)
-  {
-    header("location: login.php");
-    exit;
-  }
-  else
-  {
-    if($_SESSION["emproleid"] == ADMIN)
-    {
-      header("location: index.php");
-      exit;
-    }
-    elseif($_SESSION["emproleid"] == MODERATOR)
-    {
-      header("location: index.php");
-      exit;
-    }else
-{
-  header("location: login.php");
-  exit;
-}
-  }
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+  
+	header('Location: login.php');
+	exit;
 }
 
 include('includes/header.php'); 
