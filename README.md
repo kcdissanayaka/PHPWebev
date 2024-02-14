@@ -28,7 +28,8 @@ In this section, list and describe the features or functionality that you are wo
 - [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
 - [ ] Feature 2 (Dulshan Pramuditha Welengoda): Customer Login Page Creation | User permissions assignment.
 - [ ] Feature 3 (Govinnage Asitha Sandaruwan): Manage User Registration
-- [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Package Booking Management | Admin Panel 
+- [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Admin Panel | Package Booking Management
+- [ ] Feature 5 (Nawarathna Mudiyanselage Mujitha Manorathna): Manage Staff user
 
 > Add features as required. 
 
@@ -58,16 +59,18 @@ GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/cus_reg.php
 Package booking: User package booking management, save the booking details in database, add the card to select multiple packages and finally do the payment and store all the data into the db.   
 GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/readTrvPkgs.php
 
-### Feature 5
-
 Admin panel: this admin dashboard for the all the backend tasks like employee profile creation, managing, other website managing task like adding new content package, services. 
 
-GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/index.php
-
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/tree/main/Admin
 login details: 
-admin
-admin123
+admin/93Srilanka@
 
+### Feature 5
+
+Manage system user: including user profile update, delete user and see all the system users. 
+https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/read.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/edituser.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/deleteuser.php
 
 ---
 
@@ -76,8 +79,8 @@ admin123
 List the database tables that are part of your project. 
 
 - Table 1 (Created By : KASUN CHATHURANGA DISSANAYAKA): TOUR_PLAN_CARDS
-- Table 2 (Created By): MUJITHA MANORATHNA: Staff_role 
-- Table 3 (Created By): MUJITHA MANORATHNA: Customer_Booking 
+- Table 2 (Created By): MUJITHA MANORATHNA: STAFFROLE 
+- Table 3 (Created By): MUJITHA MANORATHNA: CUSTOMER_BOOKING 
 - Table 4 (Created By): DULSHAN WELENGODA: SERVICES_INFO 
 - Table 5 (Created By): ASITHA SANDARUWAN : staffreg
 - Table 6 (Created By): ASITHA SANDARUWAN : customer_reg
@@ -97,6 +100,7 @@ Validation 1 . Filed Mandetory Validation - HTML valiation
 - Form 3: (Created By): DULSHAN WELENGODA Form Name: login.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php | Link to the form (shell.hamk.fi). | Validations Applied
 - Form 4: (Created By): DULSHAN WELENGODA Form Name: role-read.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php | Link to the form (shell.hamk.fi). | Validations Applied
 - Form 5: (Created By): (Created By ASITHA SANDARUWAN ): staff_reg.php & cus_reg: Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/cus_reg.php | Link to the form (shell.hamk.fi). | Validations Applied
+- Form 6: (Created By): (Created By MUJITHA MANORATHNA ): edituser.php : Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/edituser.php | Link to the form (http://shell.hamk.fi/~mujitha22000/NMM_Manorathna/PHPWebev/Admin/edituser.php?emp_id=1). | PHP & JS Validations Applied.
 
 
 
