@@ -188,19 +188,47 @@ $(document).ready(function () {
     };
 
     $.ajax({
-      type: "POST",
-      url: "cus_add_process.php",
-      data: formData,
-      dataType: "json",
-      encode: true,
-    }).done(function (data) {
-      Swal.fire({
-        title: "Registered",
-        text: "You have successfully Registered",
-        icon: "success"
-      });
-      $("#contactForm")[0].reset();
-    });
+    type: "POST",
+    url: "cus_add_process.php",
+    data: formData,
+    dataType: "json",
+    encode: true,
+}).done(function (data) {
+    if (data.success === false) {
+        // Check if the error message indicates existing username
+        if (data.message === 'Username already exists!') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Username already exists!',
+                text: data.message
+            });
+        } else if (data.message === 'Email already exists!') {
+            // Check if the error message indicates existing email
+            Swal.fire({
+                icon: 'error',
+                title: 'Email already exists!',
+                text: data.message
+            });
+        } else {
+            // Other error occurred, show generic error message
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'An error occurred!'
+            });
+        }
+    } else {
+        // Registration successful, trigger success sweet alert
+        Swal.fire({
+            title: "Registered",
+            text: "You have successfully Registered",
+            icon: "success"
+        });
+        $("#contactForm")[0].reset();
+    }
+});
+
+
 
   });
 });
@@ -209,8 +237,6 @@ $(document).ready(function () {
 	
 
 <?php
-//require('db.php');
-
 // Ensure the emailid key exists in $_POST
 if(isset($_POST['login']) && isset($_POST['emailid']) && isset($_POST['password'])){
     $email = trim($_POST['emailid']); // Trim to remove whitespace
@@ -227,7 +253,9 @@ if(isset($_POST['login']) && isset($_POST['emailid']) && isset($_POST['password'
 
         if($user){
             // Verify the password
-            if($password === $user['PASSWORD']){
+            if(password_verify($password, $user['PASSWORD'])){
+                // Password is correct
+                
                 $_SESSION['isUserLoggedIn'] = true;
                 $_SESSION['emailId'] = $email;
                 echo "<script>window.location.href='homepage.php?user_loggedin';</script>";
@@ -246,6 +274,7 @@ if(isset($_POST['login']) && isset($_POST['emailid']) && isset($_POST['password'
     }
 }
 ?>
+
 
  <!-- User Login Modal -->
  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
