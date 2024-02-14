@@ -33,7 +33,7 @@
         }
     </style>
     <?php 
-    include 'Admin/includes/admindb.php';
+    include 'admindb.php';
 ?>
 </head>
 <body>
@@ -56,10 +56,10 @@
                   </span>
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <!-- <a class="dropdown-item" href="edituser.php?emp_id=<?php echo $_SESSION["empid"]?>">
+                    <a class="dropdown-item" href="edituser.php?emp_id=<?php echo $_SESSION["empid"]?>">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Edit Profile  
-                    </a> -->
+                    </a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
