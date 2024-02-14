@@ -26,10 +26,11 @@
             padding: 10px 0;
         }
         .side-pane {
-            background-color: #f8f9fa; /* Light background color */
+            background-color: blue; /* Light background color */
             padding: 20px;
             min-height: 100vh;
             margin-top: 0; /* Remove margin at the top */
+            text-align: center;
         }
     </style>
     <?php 
