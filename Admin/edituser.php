@@ -2,18 +2,14 @@
 $title = "Edit User";
 session_start();
 
-include('includes/constants.php'); 
-
-if(isset($_SESSION["emploggedin"])){
-
-	if($_SESSION["emploggedin"] === false)
-	{
-		header("location: login.php");
-		exit;
-	}
-
+if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+  
+	header('Location: login.php');
+	exit;
 }
+  
 
+include('includes/constants.php'); 
 require_once "admindb.php";
 
 $emp_id=$_GET['emp_id'];
