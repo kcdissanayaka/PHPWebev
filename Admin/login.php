@@ -4,8 +4,14 @@ session_start();
 include('includes/header-cdn.php');
 include('includes/constants.php');
 
- 
+if(isset($_SESSION["emploggedin"])){
 
+  if($_SESSION["emploggedin"] === false)
+  {
+    header("location: login.php");
+    exit;
+  }
+}
 // Include config file
 require_once "db.php";
 

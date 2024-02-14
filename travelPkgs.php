@@ -1,5 +1,5 @@
 <?php 
-$title = "Lankan Matka";
+$title = "Lankan Matka- Admin Manaeg Travel Plans";
 include 'header.php'; 
 include 'dbkcd.php';
 
