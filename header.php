@@ -157,7 +157,7 @@ $(document).ready(function () {
 	
 
 <?php
-require('db.php');
+//require('db.php');
 
 // Ensure the emailid key exists in $_POST
 if(isset($_POST['login']) && isset($_POST['emailid']) && isset($_POST['password'])){
