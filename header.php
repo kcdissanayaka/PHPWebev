@@ -188,19 +188,30 @@ $(document).ready(function () {
     };
 
     $.ajax({
-      type: "POST",
-      url: "cus_add_process.php",
-      data: formData,
-      dataType: "json",
-      encode: true,
-    }).done(function (data) {
-      Swal.fire({
-        title: "Registered",
-        text: "You have successfully Registered",
-        icon: "success"
-      });
-      $("#contactForm")[0].reset();
-    });
+    type: "POST",
+    url: "cus_add_process.php",
+    data: formData,
+    dataType: "json",
+    encode: true,
+}).done(function (data) {
+    if (data.success === false) {
+        // Username already exists, trigger sweet alert
+        Swal.fire({
+            icon: 'error',
+            title: 'Username already exists!',
+            text: data.message
+        });
+    } else {
+        // Registration successful, trigger success sweet alert
+        Swal.fire({
+            title: "Registered",
+            text: "You have successfully Registered",
+            icon: "success"
+        });
+        $("#contactForm")[0].reset();
+    }
+});
+
 
   });
 });
