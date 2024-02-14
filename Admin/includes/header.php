@@ -33,7 +33,7 @@
         }
     </style>
     <?php 
-    include 'admindb.php';
+    include 'Admin/includes/admindb.php';
 ?>
 </head>
 <body>
@@ -48,28 +48,24 @@
                 <ul class="navbar-nav ml-auto">
                 <div class="topbar-divider d-none d-sm-block"></div>
                 <!-- Nav Item - User Information -->
-                <li class="nav-item dropdown no-arrow">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                     <?php echo isset($_SESSION["empFirstname"])?$_SESSION["empFirstname"]:"Error";?>
                     (<?php echo isset($_SESSION["empusername"])?$_SESSION["empusername"]:"Error";?>)
-
-                </span>
-                
-                <!-- Dropdown - User Information -->
-                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <!-- $_SESSION["empid"] -->
-                <a class="dropdown-item" href="edituser.php?emp_id=<?php echo $_SESSION["empid"]?>">
+                  </span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="edituser.php?emp_id=<?php echo $_SESSION["empid"]?>">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Edit Profile  
-                </a>
-                <div class="dropdown-divider"></div>
+                    </a>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                         Logout
-                    </a>    
-                </div>
+                    </a> 
+                  </div>
                 </li>
                 </ul>
             </div>
