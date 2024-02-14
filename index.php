@@ -30,12 +30,12 @@ $conn->close();
                     </div>
                 </div>
                 <div class="container text-center mt-2">
-                    <div class="row tourPlanCards">
+                    <div class="row m-0 tourPlanCards">
                          <?php 
                             foreach ($tourPlanList as $tourPlan) {
                                // var_dump($tourPlan);
                                 ?>
-                                <div class="col-md-4">
+                                <!--<div class="col-md-4">
                                         <div class="card m-4 shadow" style="width: 18rem;">
                                             <div class="card"><img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
                                                 <div class="card-body">
@@ -46,7 +46,22 @@ $conn->close();
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
+                                    <div class="col-md-4">
+                                            <div class="card mb-4 h-100 shadow">
+                                                <img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
+                                                    <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
+                                                                                            
+                                                </div>
+                                                <div>
+                                                <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>  
+                                                <a href="href='./edituser.php?emp_id=" class="btn btn-warning mb-2" onclick="togglepopup()">Edit Record</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            
                                     <?php
                             }
                         ?>

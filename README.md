@@ -26,7 +26,7 @@ We have developed a travel destination management agency website. This site was 
 In this section, list and describe the features or functionality that you are working on. You can use checkboxes to track the progress of each feature.
 
 - [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
-- [ ] Feature 2 (Dulshan Pramuditha Welengoda): Customer Login Page Creation
+- [ ] Feature 2 (Dulshan Pramuditha Welengoda): Customer Login Page Creation | User permissions assignment
 - [ ] Feature 3 (Govinnage Asitha Sandaruwan): Manage User Registration
 - [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Package Booking Management  
 
@@ -42,6 +42,8 @@ As a Admin an User of the website I should be able to create/ Update/ Delete  To
 ### Feature 2
 
 The login page will be created in order to authenticate customers into the web portal after successful validation.
+
+The create-role page will create user roles and manage teh user roles with delete function.
 
 ### Feature 3
 

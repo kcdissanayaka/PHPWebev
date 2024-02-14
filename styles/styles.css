@@ -94,11 +94,17 @@ nav li:first-child{
     display: none;
 }
 
-.card-img-top {
+
+/*.card-img-top {
     width: 100%;
     height: 200px; 
     object-fit: cover;
-}
+}*/
+
+/*.card-img-top {
+   aspect-ratio: 16 / 9;
+   object-fit: cover;
+}*/
 
 
 .section{
@@ -181,6 +187,8 @@ nav li:first-child{
     .section {
         height: auto;
         padding: 20px;
+    
+    
     }
     .textOnVideo {
         margin-bottom: 20px;
@@ -220,10 +228,24 @@ nav li:first-child{
         font-size: 24px;
     }
 
-    .card {
+    /*.card {
         width: 100%;
-        margin: 10px 0;
+        margin: 10px 20px;
+
     }
+
+    .card-img-top{
+
+        aspect-ratio: 300px 193px;
+    } */
+
+   /* .card-body{
+        
+       
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }*/
 
     .booking-header h1 {
         font-size: 24px;
@@ -262,9 +284,9 @@ nav li:first-child{
     background-image: linear-gradient(to right, rgba(136, 157, 186, 0.758), rgb(232, 227, 227));
 }
 
-.tourPlanCards {
+/*.tourPlanCards {
     margin-left: 0px;
-}
+}*/
 
 .tourPlan h1{
     background-color: #92A811;

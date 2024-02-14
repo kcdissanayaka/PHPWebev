@@ -32,13 +32,14 @@ if ($result) {
                     </div>
                 </div>
                 <div class="container text-center mt-2">
-                    <div class="row tourPlanCards mx-auto">
+                    <!--<div class="row tourPlanCards g-3"> -->
+                    <div class="row m-0">
                          <?php 
                             foreach ($tourPlanList as $tourPlan) {
                               // var_dump($tourPlan);
                                 ?>
-                                <div class="col-md-4">
-                                        <div class="card m-4 shadow" style="width: 18rem;">
+                                <!--<div class="col-12 col-md-6 col-lg-4 ">
+                                        <div class="card h-100 shadow">
                                             <div class="card"><img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
                                                 <div class="card-body">
                                                     <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
@@ -49,8 +50,25 @@ if ($result) {
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <?php
+                                    </div>-->
+                                    
+                                        <div class="col-md-4">
+                                            <div class="card mb-4 h-100 shadow">
+                                                <img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
+                                                    <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
+                                                                                            
+                                                </div>
+                                                <div>
+                                                <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>  
+                                                <a href="href='./edituser.php?emp_id=" class="btn btn-warning mb-2" onclick="togglepopup()">Edit Record</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                            
+                                    
+                                <?php
                             }
                         ?>
                         <!--
@@ -71,7 +89,9 @@ if ($result) {
                                 </div>
                             </div> -->
                         </div>
-                        </section> 
+
+            
+        </section> 
 
         
     <!-- Services -->
@@ -84,7 +104,7 @@ if ($result) {
                     </div>
                 </div>
                 <div class="col-md-12">
-                       <? // SQL query to retrieve data from the 'studentsinfo' table
+                       <!-- "// add PHP SQL query to retrieve data from the 'studentsinfo' table
                                 
                                
 
@@ -130,7 +150,7 @@ if ($result) {
                                 ?>
                                    
 
-                            </div>
+                            </div> -->
                         
                             
                     <form name = "ManageTourPlan" id="myForm" class="row text-left mx-auto" method="post" action="processTurpkg.php" enctype="multipart/form-data">
