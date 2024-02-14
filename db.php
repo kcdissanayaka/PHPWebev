@@ -1,8 +1,8 @@
 <?php
-$servername = "phpsrv-db-1"; /*"phpsrv-db-1"; Kasun DB */
+$servername = "php24-db-1"; /*"phpsrv-db-1"; Kasun DB */
 $username = "lankanmtka";
 $password = "1234";
-$dbname = "lankanmtka";
+$dbname = "LankanMatka";
 
 // create db connection
 $conn = new mysqli($servername, $username, $password, $dbname);

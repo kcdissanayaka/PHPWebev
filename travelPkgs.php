@@ -1,7 +1,7 @@
 <?php 
 $title = "Lankan Matka- Admin Manaeg Travel Plans";
 include 'header.php'; 
-include 'dbkcd.php';
+include 'Admin/admindb.php';
 
 $tourPlanList = array(); // creawted the array to store the data tavle card data receveid from my db.
 $allTourPlns = array();
