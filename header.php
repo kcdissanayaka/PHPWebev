@@ -1,5 +1,6 @@
 <?php
-session_start();?>
+session_start();
+include 'db.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +15,7 @@ session_start();?>
     <link rel="stylesheet" href="styles/styles.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <body>
         
     <div class="container">
@@ -82,35 +83,34 @@ session_start();?>
 
                         
     <div id="contact">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 	<div id="contact-modal" class="modal fade" role="dialog">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
-                <h3>Customer Registration</h3>
+                	<h3>Customer Registration</h3>
 					<a href="" class="close" data-dismiss="modal">×</a>
 				</div>
 				<form id="contactForm" name="contact" role="form">
 					<div class="modal-body">				
 						<div class="form-group">
 							<label for="firstname">First Name</label>
-							<input type="text" name="fname" class="form-control" id="firstname" required>
+							<input type="text" name="fname" class="form-control" id="firstname" placeholder="Enter your first name" required>
 						</div>
 						<div class="form-group">
 							<label for="lastname">Last Name</label>
-							<input type="text" name="lname" class="form-control" id="lastname" required>
+							<input type="text" name="lname" class="form-control" id="lastname" placeholder="Enter your last name" required>
 						</div>
 						<div class="form-group">
 							<label for="email">Email</label>
-							<input type="text" name="email" class="form-control" id="email" required>
+							<input type="text" name="email" class="form-control" id="email" placeholder="Enter your email address" required>
 						</div>
                         <div class="form-group">
 							<label for="username">Username</label>
-							<input type="text" name="username" class="form-control" id="username" required>
+							<input type="text" name="username" class="form-control" id="username" placeholder="Choose a username" required>
 						</div>	
                         <div class="form-group">
 							<label for="password">Password</label>
-							<input type="password" name="password" class="form-control" id="password" required>
+							<input type="password" name="password" class="form-control" id="password" placeholder="Enter a password" required>
 						</div>				
 					</div>
 					<div class="modal-footer">					
@@ -121,18 +121,70 @@ session_start();?>
 			</div>
 		</div>
 	</div>
+</div>
 
-<script>
+
+    <script>
 $(document).ready(function () {
   $("#contactForm").submit(function (event) {
     event.preventDefault();
 
+    // Form validation
+    var firstName = $("#firstname").val().trim();
+    var lastName = $("#lastname").val().trim();
+    var email = $("#email").val().trim();
+    var username = $("#username").val().trim();
+    var password = $("#password").val().trim();
+
+    // Check if fields are not empty
+    if (firstName === '' || lastName === '' || email === '' || username === '' || password === '') {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'All fields are required!'
+      });
+      return false;
+    }
+
+    // Validate email format
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid Email',
+        text: 'Please enter a valid email address'
+      });
+      return false;
+    }
+
+    // Check if firstname is at least 5 characters
+    if (firstName.length < 5) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Invalid First Name',
+        text: 'First name must be at least 5 characters long'
+      });
+      return false;
+    }
+
+    // Check if password includes a special character
+    var specialCharPattern = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
+    if (!specialCharPattern.test(password)) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Weak Password',
+        text: 'Password must include a special character'
+      });
+      return false;
+    }
+
+    // Perform AJAX form submission if all validations pass
     var formData = {
-      firstname: $("#firstname").val(),
-      lastname: $("#lastname").val(),
-      email: $("#email").val(),
-      username: $("#username").val(),
-      password: $("#password").val(),
+      firstname: firstName,
+      lastname: lastName,
+      email: email,
+      username: username,
+      password: password
     };
 
     $.ajax({
@@ -142,18 +194,18 @@ $(document).ready(function () {
       dataType: "json",
       encode: true,
     }).done(function (data) {
-        Swal.fire({
+      Swal.fire({
         title: "Registered",
         text: "You have successfully Registered",
         icon: "success"
-        });  
-
-        $("#contactForm")[0].reset();
+      });
+      $("#contactForm")[0].reset();
     });
 
   });
 });
 </script>
+
 	
 
 <?php
