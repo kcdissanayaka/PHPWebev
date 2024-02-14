@@ -23,6 +23,17 @@ if (isset($_POST['firstname'])) {
         exit(); // Exit script
     }
 
+    // Check if email already exists
+    $check_email_query = "SELECT * FROM CUSTOMER_REG WHERE EMAIL='$email'";
+    $check_email_result = $conn->query($check_email_query);
+    if ($check_email_result->num_rows > 0) {
+        // Email already exists, send error response
+        $data['success'] = false;
+        $data['message'] = 'Email already exists!';
+        echo json_encode($data);
+        exit(); // Exit script
+    }
+
     // Hash the password
     $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 

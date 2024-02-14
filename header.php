@@ -195,12 +195,28 @@ $(document).ready(function () {
     encode: true,
 }).done(function (data) {
     if (data.success === false) {
-        // Username already exists, trigger sweet alert
-        Swal.fire({
-            icon: 'error',
-            title: 'Username already exists!',
-            text: data.message
-        });
+        // Check if the error message indicates existing username
+        if (data.message === 'Username already exists!') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Username already exists!',
+                text: data.message
+            });
+        } else if (data.message === 'Email already exists!') {
+            // Check if the error message indicates existing email
+            Swal.fire({
+                icon: 'error',
+                title: 'Email already exists!',
+                text: data.message
+            });
+        } else {
+            // Other error occurred, show generic error message
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'An error occurred!'
+            });
+        }
     } else {
         // Registration successful, trigger success sweet alert
         Swal.fire({
@@ -211,6 +227,7 @@ $(document).ready(function () {
         $("#contactForm")[0].reset();
     }
 });
+
 
 
   });
