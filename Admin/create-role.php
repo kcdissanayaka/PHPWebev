@@ -1,16 +1,15 @@
 <?php 
     $title ="Create Role";
+    
+    if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+  
+        header('Location: login.php');
+        exit;
+      }
+      
     include('includes/header.php');
 
-    if(isset($_SESSION["emploggedin"])){
-
-        if($_SESSION["emploggedin"] === false)
-        {
-            header("location: login.php");
-            exit;
-        }
     
-    }
 ?>
 
 <h2>Create Role</h2><br>

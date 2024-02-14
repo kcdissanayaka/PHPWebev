@@ -64,7 +64,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                session_start();
                             
                             // Store data in session variables
-                             $_SESSION["emploggedin"] = true;
+                             $_SESSION['authenticated'] = true;
+                             $_SESSION['username'] = $_POST['username'];
+                             $_SESSION["emploggedin1"] = true;
                              $_SESSION["empid"] = $id;
                              $_SESSION["empFirstname"] = $first_name;
                              $_SESSION["emplastname"] = $last_name;
