@@ -6,6 +6,16 @@ include('includes/header.php');
 
 // Include config file
 require_once "admindb.php";
+
+if(isset($_SESSION["emploggedin"])){
+
+	if($_SESSION["emploggedin"] === false)
+	{
+		header("location: login.php");
+		exit;
+	}
+
+}
 ?>
 
 <div class="container-fluid">
