@@ -182,20 +182,23 @@ if ($result) {
                                 <textarea class="form-control" name="imageText" rows="3" id="imageText" required></textarea>
                                 
                             </div>
+                            <div class ="row">
 
-                            <div class=" col-md-4 pb-4">
-                                <label for="plnstatus" class="form-label">Status</label>
-                                <select class="form-control" id="plnstatus" name="plnstatus" required>
-                                            <option value="A">ACTIVE</option>
-                                            <option value="I">INACTIVE</option>
+                                <div class=" col-md-4 mx-3 pb-4">
+                                    <label for="plnstatus" class="form-label">Status</label>
+                                    <select class="form-control" id="plnstatus" name="plnstatus" required>
+                                                <option value="A">ACTIVE</option>
+                                                <option value="I">INACTIVE</option>
 
-                                </select>
-                            <div class= "col-mb-12 pb-4" >
+                                    </select>
+                                </div>
+                                <div class= "col-mb-4 mx-4 pb-4" >
 
-                                <button type="submit" name ="submit" class="btn btn-success mt-2 mt-2 mr-2">Create Plan</button>
-                                <button type="submit" name ="submit" class="btn btn-warning mt-2 mr-2">Update Plan</button>
-                                <button type="submit" name ="submit" class="btn btn-danger mt-2 mr-2">Delete Plan</button>
-                                <button type="button" name ="clear" value="Submit"  id ="clear" onclick="resetform()" class="btn btn-primary  mr-2 mt-2">Clear Form</button>
+                                    <button type="submit" name ="submit" class="btn btn-success mt-2 mt-2 mr-2">Create Plan</button>
+                                    <button type="submit" name ="submit" class="btn btn-warning mt-2 mr-2">Update Plan</button>
+                                    <button type="submit" name ="submit" class="btn btn-danger mt-2 mr-2">Delete Plan</button>
+                                    <button type="button" name ="clear" value="Submit"  id ="clear" onclick="resetform()" class="btn btn-primary  mr-2 mt-2">Clear Form</button>
+                                </div>
                             </div>
                                 
                             

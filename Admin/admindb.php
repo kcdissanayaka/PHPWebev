@@ -1,5 +1,5 @@
 <?php
-$servername = "php24-db-1";  /*phpsrv-db-1 ' * mujitha db php24-db-1*/
+$servername = "phpsrv-db-1";  /*phpsrv-db-1 ' * mujitha db php24-db-1*/
 $username = "lankanmtka";
 $password = "1234";
 $dbname = "lankanmtka";

@@ -26,9 +26,9 @@ We have developed a travel destination management agency website. This site was 
 In this section, list and describe the features or functionality that you are working on. You can use checkboxes to track the progress of each feature.
 
 - [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
-- [ ] Feature 2 (Dulshan Pramuditha Welengoda): Customer Login Page Creation | User permissions assignment
+- [ ] Feature 2 (Dulshan Pramuditha Welengoda): Customer Login Page Creation | User permissions assignment.
 - [ ] Feature 3 (Govinnage Asitha Sandaruwan): Manage User Registration
-- [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Package Booking Management  
+- [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Package Booking Management | Admin Panel 
 
 > Add features as required. 
 
@@ -38,28 +38,37 @@ As a Admin an User of the website I should be able to create/ Update/ Delete  To
 
  (Include more detailed information about Feature 1 here. Provide links to related code files (github) & link to the feature (shell.hamk.fi) ).
  http://shell.hamk.fi/~kasun23000/PHPFinalProject/PHPWebev/travelPkgs.php
+ https://github.com/kcdissanayaka/PHPWebev/blob/main/travelPkgs.php
 
 ### Feature 2
 
 The login page will be created in order to authenticate customers into the web portal after successful validation.
-
-The create-role page will create user roles and manage teh user roles with delete function.
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php
+The role-read page will create user roles and manage the user roles with delete function.
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php
 
 ### Feature 3
 
 My role in Team 23 is managing user registration. In this feature I will develop user registration and create accounts on the website so they can book travel packages by registering to the site and can access other features as well offered by Lankan Matka travel agency. I make sure the registration process will be smooth and easy for users.
 
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/cus_reg.php
+
 ### Feature 4
 
 Package booking: User package booking management, save the booking details in database, add the card to select multiple packages and finally do the payment and store all the data into the db.   
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/readTrvPkgs.php
 
 ### Feature 5
 
 Admin panel: this admin dashboard for the all the backend tasks like employee profile creation, managing, other website managing task like adding new content package, services. 
 
+GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/index.php
+
 login details: 
 admin
 admin123
+
+
 ---
 
 ## Database Tables
@@ -83,9 +92,11 @@ List the database tables that are part of your project.
 List and describe any forms that have been created as part of your project. Include details about the purpose of each form and any validation logic.
 
 - Form 1 (Created By KASUN CHATHURANGA DISSANAYAKA): travelPkgs.php: Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/travelPkgs.php | Link to the form (shell.hamk.fi). http://shell.hamk.fi/~kasun23000/PHPFinalProject/PHPWebev/travelPkgs.php| Validations Applied
+Validation 1 . Filed Mandetory Validation - HTML valiation
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 - Form 3: (Created By): DULSHAN WELENGODA Form Name: login.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php | Link to the form (shell.hamk.fi). | Validations Applied
-- Form 4: (Created By): (Created By ASITHA SANDARUWAN ): staff_reg.php & cus_reg: Link to the related code file (github) | Link to the form (shell.hamk.fi). | Validations Applied
+- Form 4: (Created By): DULSHAN WELENGODA Form Name: role-read.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php | Link to the form (shell.hamk.fi). | Validations Applied
+- Form 5: (Created By): (Created By ASITHA SANDARUWAN ): staff_reg.php & cus_reg: Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/cus_reg.php | Link to the form (shell.hamk.fi). | Validations Applied
 
 
 
