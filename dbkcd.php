@@ -1,7 +1,7 @@
 <?php
-$servername = "phpsrv-db-1";
+$servername = "phpsrv-db-1"; /*"phpsrv-db-1"; Kasun DB */
 $username   = "lankanmtka";
-$password   = "Abc@112211";
+$password   = "1234";
 $dbname     = "lankanmtka";
 
 //created a database connection

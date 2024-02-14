@@ -113,6 +113,7 @@
                         <li class="list-group-item"><a href="read.php">Manage User</a></li>
                         <li class="list-group-item"><a href="create-role.php">Create Role</a></li>
                         <li class="list-group-item"><a href="role-read.php">Manage Role</a></li>
+                        <li class="list-group-item"><a href="travelPkgs.php">Manage Travel Plans</a></li>
                     </ul>
                 </div>
             </div>
