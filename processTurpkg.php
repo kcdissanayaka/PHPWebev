@@ -17,7 +17,7 @@ if(isset($_POST["submit"])){
 
     // Connect to the dabase server
 
-include 'dbkcd.php';
+include 'db.php';
  // wirte SqL to insert data to the relvant table
 
    /* Define an SQL query to insert data into the 'studentsinfo' table
