@@ -237,16 +237,24 @@ $(document).ready(function () {
         dataType: "json",
         encode: true,
       }).done(function (data) {
-        Swal.fire({
-          title: "Added",
-          text: "Your record has been added.",
-          icon: "success",
-          position: "center",
-          customClass: {
-            popup: 'left-align'
+        if (data.success) {
+          Swal.fire({
+            title: "Added",
+            text: "Your record has been added.",
+            icon: "success",
+            position: "center",
+            customClass: {
+              popup: 'left-align'
+            }
+          });
+          $("#staffreg")[0].reset();
+        } else {
+          if (data.message === "Username already exists.") {
+            showValidationError("Username already exists. Please choose a different username.");
+          } else {
+            showValidationError(data.message);
           }
-        });
-        $("#staffreg")[0].reset();
+        }
       });
     }
   });
@@ -263,6 +271,7 @@ $(document).ready(function () {
     });
   }
 });
+
 </script>
 
 <style>
