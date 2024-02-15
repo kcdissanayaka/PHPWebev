@@ -100,7 +100,7 @@ if ($result) {
             <div class="service-header">
                 <div class="row">
                     <div class="col">
-                        <h1>Crate Travel Plan</h1>
+                        <h1>Create Travel Plan</h1>
                     </div>
                 </div>
                 <div class="col-md-12">
