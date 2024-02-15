@@ -1,4 +1,5 @@
 <?php
+$title ="Login";
 ob_start();
 session_start();
 include('includes/header-cdn.php');
