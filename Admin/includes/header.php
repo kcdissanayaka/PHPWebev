@@ -33,6 +33,7 @@
             text-align: center;
             color: #ffffff; /* Light text color */
         }
+        
     </style>
     <?php 
     include 'admindb.php';
