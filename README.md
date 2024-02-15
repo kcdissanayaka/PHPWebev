@@ -22,6 +22,8 @@ We have developed a travel destination management agency website. This site was 
 ---
 ## Public URL
  http://shell.hamk.fi/~bbcap23_23/PHPWebev/index.php
+ http://shell.hamk.fi/~bbcap23_23/PHPWebev/Admin/index.php
+
 ## Features
 
 In this section, list and describe the features or functionality that you are working on. You can use checkboxes to track the progress of each feature.
@@ -41,7 +43,9 @@ As a Admin an User of the website I should be able to create/ Update/ Delete  To
  (Include more detailed information about Feature 1 here. Provide links to related code files (github) & link to the feature (shell.hamk.fi) ).
  
  http://shell.hamk.fi/~kasun23000/PHPFinalProject/PHPWebev/travelPkgs.php
+
  https://github.com/kcdissanayaka/PHPWebev/blob/main/travelPkgs.php
+ https://github.com/kcdissanayaka/PHPWebev/blob/main/processTurpkg.php
 
 
 ### Feature 2
