@@ -51,9 +51,11 @@ As a Admin an User of the website I should be able to create/ Update/ Delete  To
 ### Feature 2
 
 The login page will be created in order to authenticate customers into the web portal after successful validation.
-GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php
+GitHub Link  : https://github.com/kcdissanayaka/PHPWebev/blob/main/header.php
+
 The role-read page will create user roles and manage the user roles with delete function.
-GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php
+GitHub Links : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php
+               https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/create-role.php   
 
 ### Feature 3
 
@@ -111,9 +113,21 @@ Validation 1 . Filed Mandetory Validation - HTML valiation
 
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 
-- Form 3: (Created By): DULSHAN WELENGODA Form Name: login.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php | Link to the form (shell.hamk.fi). | Validations Applied
+- Form 3: (Created By): DULSHAN WELENGODA  
 
-- Form 4: (Created By): DULSHAN WELENGODA Form Name: role-read.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php | Link to the form (shell.hamk.fi). | Validations Applied
+(github) 
+https://github.com/kcdissanayaka/PHPWebev/blob/main/header.php 
+https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/create-role.php
+            
+(shell.hamk.fi)
+http://shell.hamk.fi/~dulshan23000/PHPWebev/header.php
+http://shell.hamk.fi/~dulshan23000/PHPWebev/Admin/role-read.php
+http://shell.hamk.fi/~dulshan23000/PHPWebev/Admin/create-role.php   
+Validations 1. Whether an existing user
+            2. Whether an existing role
+
+- Form 4: (Created By): DULSHAN WELENGODA Form Name: role-read.php Link to the related code file (github)  | Link to the form (shell.hamk.fi). | Validations Applied
 
 - Form 5: (Created By): (Created By ASITHA SANDARUWAN ): staff_reg_process.php: Link to the related code file
 
