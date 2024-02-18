@@ -26,13 +26,13 @@ if (isset($_SESSION["booking_details"])) {
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap">
-    <link rel="stylesheet" href="styles/styles.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Custom styles for this template -->
     <style>
         body {
             padding-top: 5rem;
+            font-family: 'AR One Sans', sans-serif;
         }
     </style>
 </head>
