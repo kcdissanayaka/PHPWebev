@@ -37,10 +37,6 @@ include 'customerDashboardHeader.php'; ?>
            echo '<input type="number" class="form-control" id="numberOfPersons" name="numberOfPersons" placeholder="4" value="' . (isset($bookingData['numberOfPersons']) ? $bookingData['numberOfPersons'] : '') . '">';
            echo '</div>';
            echo '<div class="form-group">';
-           echo '<label for="whereToGo">Where To Go</label>';
-           echo '<input type="text" class="form-control" id="whereToGo" name="whereToGo" placeholder="Sigiriya" value="' . (isset($bookingData['whereToGo']) ? $bookingData['whereToGo'] : '') . '">';
-           echo '</div>';
-           echo '<div class="form-group">';
            echo '<label for="arrivalDate">Arrival Date</label>';
            echo '<input type="date" class="form-control" id="arrivalDate" name="arrivalDate" value="' . (isset($bookingData['arrivalDate']) ? $bookingData['arrivalDate'] : '') . '">';
            echo '</div>';
@@ -68,7 +64,7 @@ include 'customerDashboardHeader.php'; ?>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+       
       </div>
     </div>
   </div>

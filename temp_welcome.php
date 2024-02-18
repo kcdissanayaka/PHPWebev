@@ -50,7 +50,6 @@ if (isset($_SESSION["booking_details"])) {
             echo "<p>Email: " . $bookingData['email'] . "</p>";
             echo "<p>Phone: " . $bookingData['phone'] . "</p>";
             echo "<p>Number of Persons: " . $bookingData['numberOfPersons'] . "</p>";
-            echo "<p>Where To Go: " . $bookingData['whereToGo'] . "</p>";
             echo "<p>Arrival Date: " . $bookingData['arrivalDate'] . "</p>";
             echo "<p>Departure Date: " . $bookingData['departureDate'] . "</p>";
 
