@@ -79,12 +79,6 @@ if (isset($_SESSION["booking_details"])) {
                 </button>
             </div>
             <div class="modal-body">
-                <?php if(isset($error)){ ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $error; ?>
-                    </div>
-                <?php } ?>
-
                 <form method="post" class="text-center">
                     <div class="form-group text-center">
                         <div style="margin-bottom: 20px;">
