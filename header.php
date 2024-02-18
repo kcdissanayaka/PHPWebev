@@ -1,4 +1,5 @@
 <?php
+ob_start();
 session_start();
 include 'db.php';?>
 <!DOCTYPE html>
@@ -79,7 +80,7 @@ include 'db.php';?>
                     </div>
                 </div>
             </div>
-                    </section>
+        </section>
 
                         
     <div id="contact">

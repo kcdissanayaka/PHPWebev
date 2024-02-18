@@ -36,7 +36,7 @@ if ($result) {
                     <div class="row m-0">
                          <?php 
                             foreach ($tourPlanList as $tourPlan) {
-                              // var_dump($tourPlan);
+                               //var_dump($tourPlan);
                                 ?>
                                 <!--<div class="col-12 col-md-6 col-lg-4 ">
                                         <div class="card h-100 shadow">
@@ -62,7 +62,18 @@ if ($result) {
                                                 </div>
                                                 <div>
                                                 <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>  
-                                                <a href="href='./edituser.php?emp_id=" class="btn btn-warning mb-2" onclick="togglepopup()">Edit Record</a>
+                                                <button type="button" class="btn btn-warning mb-2" 
+                                                onclick="editPlan('<?php echo $tourPlan['TOUR_PLN_ID']; ?>',
+                                                '<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>',
+                                                '<?php echo $tourPlan['TOUR_PLN_PERSON_PRICE']; ?>',
+                                                '<?php echo $tourPlan['TOUR_PLN_DAYS']; ?>',
+                                                 '<?php echo $tourPlan['TOUR_PLN_PERSON_PRICE']; ?>', 
+                                                 '<?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?>',
+                                                 '<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>', 
+                                                 '<?php echo $tourPlan['TOUR_PLN_IMG_TEXT']; ?>', 
+                                                 '<?php echo $tourPlan['TOUR_PLN_STATUS']; ?>')">Edit Record</button>
+
+                                                <button type="button" class="btn btn-danger mb-2" onclick="deletePlan(this)">Delete Record</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -154,7 +165,12 @@ if ($result) {
                         
                             
                     <form name = "ManageTourPlan" id="myForm" class="row text-left mx-auto" method="post" action="processTurpkg.php" enctype="multipart/form-data">
-                       
+                    
+                            <div class=" col-md-4 mx-0 pb-4">
+                                <label for="tourPlnID" class="form-label">Plan Number</label>
+                                <input type="text" class="form-control"  name="tourPlnID" id="tourPlnID">
+                            </div>
+                            <div class ="row">
                             <div class=" col-md-4 pb-4">
                                 <label for="tourPlnTitle" class="form-label">Plan Name</label>
                                 <input type="text" class="form-control"  name="tourPlnTitle" id="tourPlnTitle" required>
@@ -194,7 +210,7 @@ if ($result) {
                                 </div>
                                 <div class= "col-mb-4 mx-4 pb-4" >
 
-                                    <button type="submit" name ="submit" class="btn btn-success mt-2 mt-2 mr-2">Create Plan</button>
+                                    <button type="submit" name ="submit" onclick="return checkInvalidCharacter()" class="btn btn-success mt-2 mt-2 mr-2">Create Plan</button>
                                     <button type="submit" name ="submit" class="btn btn-warning mt-2 mr-2">Update Plan</button>
                                     <button type="submit" name ="submit" class="btn btn-danger mt-2 mr-2">Delete Plan</button>
                                     <button type="button" name ="clear" value="Submit"  id ="clear" onclick="resetform()" class="btn btn-primary  mr-2 mt-2">Clear Form</button>
@@ -210,8 +226,43 @@ if ($result) {
         </section>
 
 
+
+<script>
+  
+    function editPlan(plnid, plntitle, plnprice, plndays, plperson_price, plnsummary, plnimage, plnimageText, plnstatus) {
+     
+        document.getElementById("tourPlnID").value = plnid;
+        document.getElementById("tourPlnTitle").value = plntitle;
+        document.getElementById("plnDays").value = plndays;
+        document.getElementById("plnprice").value = plnprice;
+        document.getElementById("plnSummary").value = plnsummary;
+        document.getElementById("imageText").value = plnimageText;
+        document.getElementById("plnstatus").value = status;
+    }
+</script>
+
+<script>
+    function checkInvalidCharacter(){
+        var plansummary = document.getElementById("plnSummary").value;
+        var imgText = document.getElementById("imageText").value;
+        var turPlnTitle = document.getElementById("tourPlnTitle").value;
+        if (plansummary.includes("'") || imgText.includes("'") || turPlnTitle.includes("'")){
+
+            alert("Invalid Character Found /'");
+            return false;
+        } else {
+            return true;
+        } 
+         
+    }
+</script>
+
+
+
+
 <script>
         function resetform(){
+            document.getElementById('tourPlnID').value='';
             document.getElementById('tourPlnTitle').value='';
             document.getElementById('image').value='';
             document.getElementById('plnDays').value='';

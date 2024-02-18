@@ -1,5 +1,5 @@
 <?php 
-$title = "Lankan Matka";
+$title = "LankanMatka";
 include 'header.php'; 
 include 'db.php';
 
@@ -57,7 +57,7 @@ $conn->close();
                                                 </div>
                                                 <div>
                                                 <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>  
-                                                <a href="href='./edituser.php?emp_id=" class="btn btn-warning mb-2" onclick="togglepopup()">View Package Details</a>
+                                                <a href="#" class="btn btn-warning mb-2" onclick="togglepopup()">View Package Details</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -186,44 +186,110 @@ $conn->close();
                                 world heritage site since 1982</h4>
                         </div>
                         <div class="col-md-6 booking-form text-left">
-                            <form>
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Tommi Saksa">
-                                </div>
-                                <div class="form-group">
-                                    <label for="text">Email Address</label>
-                                    <input type="text" class="form-control" id="text"
-                                        placeholder="tommisaksa@gmail.com">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone Number</label>
-                                    <input type="tel" class="form-control" id="phone" placeholder="0415123456">
-                                </div>
-                                <div class="form-group">
-                                    <label for="numberOfPersons">Number Of Persons</label>
-                                    <input type="number" class="form-control" id="numberOfPersons" placeholder="4">
-                                </div>
-                                <div class="form-group">
-                                    <label for="whereToGo">Where To Go</label>
-                                    <input type="text" class="form-control" id="whereToGo" placeholder="Sigiriya">
-                                </div>
-                                <div class="form-group">
-                                    <label for="arrivalDate">Arrival Date</label>
-                                    <input type="date" class="form-control" id="arrivalDate">
-                                </div>
-                                <div class="form-group">
-                                    <label for="departureDate">Departure Date</label>
-                                    <input type="date" class="form-control" id="departureDate">
-                                </div>
-                                <button type="submit" class="btn btn-warning">Submit</button>
-                                <button type="reset" class="btn btn-warning">Reset</button>
-                            </form>
+                        <form action="" method="POST" onsubmit="return validateForm()">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" class="form-control" id="name" name="name" placeholder="your name here">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="your email here">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="your phone number">
+                        </div>
+                        <div class="form-group">
+                            <label for="numberOfPersons">Number Of Persons</label>
+                            <input type="number" class="form-control" id="numberOfPersons" name="numberOfPersons" placeholder="4">
+                        </div>
+                        <div class="form-group">
+                            <label for="arrivalDate">Arrival Date</label>
+                            <input type="date" class="form-control" id="arrivalDate" name="arrivalDate" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="departureDate">Departure Date</label>
+                            <input type="date" class="form-control" id="departureDate" name="departureDate" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+14 days')); ?>">
+                        </div>
+                        <button type="submit" class="btn btn-warning" name="submit">Submit</button>
+                        <button type="reset" class="btn btn-warning">Reset</button>
+                    </form>
+                    
+
+                    <script>
+                        function validateForm() {
+                            var arrivalDate = document.getElementById("arrivalDate").value;
+                            var departureDate = document.getElementById("departureDate").value;
+                            var futureDate = new Date();
+                            futureDate.setDate(futureDate.getDate() + 14); // Set the departure date to 14 days in the future
+
+                            // Validate arrival date
+                            if (arrivalDate < today) {
+                                alert("Please select today's date or a future date for arrival.");
+
+                            var today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+
+                            if (arrivalDate < today || departureDate < today) {
+                                alert("Please select a date in the future.");
+                                return false; // Prevent form submission
+                            }
+
+                            if (arrivalDate > departureDate) {
+                                alert("Departure date must be after arrival date.");
+                                return false; // Prevent form submission
+                            }
+
+                            return true; // Allow form submission
+                        }
+                    }
+                    </script>
+
                         </div>
                     </div>
                 </div>
             </div> <!--booking-->
         </section>
+
+        <?php
+
+// Start the session
+
+
+// Check if the form is submitted
+if(isset($_POST["submit"])) {
+    // Retrieve form data
+    $name = $_POST["name"];
+    $email = $_POST["email"];
+    $phone = $_POST["phone"];
+    $numberOfPersons = $_POST["numberOfPersons"];
+    $whereToGo = $_POST["whereToGo"];
+    $arrivalDate = $_POST["arrivalDate"];
+    $departureDate = $_POST["departureDate"];
+
+    // Store form data in session variables
+    $_SESSION["booking_details"] = array(
+        "name" => $name,
+        "email" => $email,
+        "phone" => $phone,
+        "numberOfPersons" => $numberOfPersons,
+        "whereToGo" => $whereToGo,
+        "arrivalDate" => $arrivalDate,
+        "departureDate" => $departureDate
+    );
+
+    // Redirect user to temp_welcome.php
+    header("Location: temp_welcome.php");
+    exit();
+}
+?>
+
+?>
+
+
+
+
+<!-- HTML code for booking form -->
+
 
         <section id="services">
             <!-- Services -->
