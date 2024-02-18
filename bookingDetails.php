@@ -117,82 +117,99 @@ include 'customerDashboardHeader.php'; ?>
         </section> 
 
         <section id="cart" class="mt-4">
-            <h2>Shopping Cart</h2>
-            <div class="container">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Total</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="cart-body">
-                        <!-- Cart items will be added dynamically here -->
-                    </tbody>
-                </table>
-                <div id="total">Total: $0.00</div>
-            </div>
-        </section>
-
+    <h2>Shopping Cart</h2>
+    <div class="container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="cart-body">
+                <!-- Cart items will be added dynamically here -->
+            </tbody>
+        </table>
+        <div id="total">Total: $0.00</div>
     </div>
-</div>
+</section>
 
 <script>
+    let cartItems = [];
+
+    function addToCart(id, title, price) {
+        const existingItem = cartItems.find(item => item.id === id);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cartItems.push({ id, title, price, quantity: 1 });
+        }
+        renderCart();
+    }
+
+    function removeFromCart(id) {
+        console.log("Removing item with ID:", id); // Check if the ID is correctly received
+        cartItems = cartItems.filter(item => parseInt(item.id) != parseInt(id)); // Remove the item with the specified ID
+        console.log("Cart after removal:", cartItems); // Log the cart after removal to check if the item is removed
+        renderCart(); // Render the updated cart
+    }
+
+
+    function updateQuantity(id, quantity) {
+        const item = cartItems.find(item => item.id === id);
+        if (item) {
+            item.quantity = parseInt(quantity);
+            renderCart();
+        }
+    }
+
+    function renderCart() {
+    // Get the cart body element
+    const cartBody = document.getElementById("cart-body");
+    
+    // Clear the existing content inside the cart body
+    cartBody.innerHTML = "";
+    
+    // Initialize total variable to calculate the total price
+    let total = 0;
+    
+    // Iterate over each item in the cartItems array
+    cartItems.forEach(item => {
+        // Calculate the total price for the current item
+        const itemTotal = item.price * item.quantity;
+        
+        // Add the item total to the total variable
+        total += itemTotal;
+        
+        // Create a table row (tr) element for the current item
+        const row = document.createElement("tr");
+        
+        // Set the HTML content for the row using template literals
+        row.innerHTML = `
+            <td>${item.title}</td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td>
+                <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, this.value)">
+            </td>
+            <td>$${itemTotal.toFixed(2)}</td>
+            <td>
+                <button class="btn btn-danger" onclick="removeFromCart(${item.id})">Remove</button>
+            </td>
+        `;
+        
+        // Append the row to the cart body
+        cartBody.appendChild(row);
+    });
+    
+    // Update the total amount element with the calculated total
+    document.getElementById("total").innerText = `Total: $${total.toFixed(2)}`;
+}
+
+
     document.addEventListener("DOMContentLoaded", function() {
-        let cartItems = [];
-
-        function addToCart(id, title, price) {
-            const existingItem = cartItems.find(item => item.id === id);
-            if (existingItem) {
-                existingItem.quantity++;
-            } else {
-                cartItems.push({ id, title, price, quantity: 1 });
-            }
-            renderCart();
-        }
-
-        function removeFromCart(id) {
-            console.log("Removing item with ID:", id);
-            cartItems = cartItems.filter(item => item.id !== id);
-            renderCart();
-        }
-
-        function updateQuantity(id, quantity) {
-            const item = cartItems.find(item => item.id === id);
-            if (item) {
-                item.quantity = parseInt(quantity);
-                renderCart();
-            }
-        }
-
-        function renderCart() {
-            const cartBody = document.getElementById("cart-body");
-            cartBody.innerHTML = "";
-            let total = 0;
-            cartItems.forEach(item => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                const row = `
-                    <tr>
-                        <td>${item.title}</td>
-                        <td>$${item.price.toFixed(2)}</td>
-                        <td>
-                            <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, this.value)">
-                        </td>
-                        <td>$${itemTotal.toFixed(2)}</td>
-                        <td>
-                            <button class="btn btn-danger" onclick="removeFromCart(${item.id})">Remove</button>
-                        </td>
-                    </tr>
-                `;
-                cartBody.innerHTML += row;
-            });
-            document.getElementById("total").innerText = `Total: $${total.toFixed(2)}`;
-        }
-
         const addToCartButtons = document.querySelectorAll(".add-to-cart");
         addToCartButtons.forEach(button => {
             button.addEventListener("click", function() {
