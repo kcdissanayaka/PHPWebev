@@ -96,12 +96,12 @@ $conn->close();
             <div class="tourPlan text-center">
                 <div class="row">
                     <div class="col">
-                        <h1>PREVIEW TOUR PLANS</h1>
+                        <h1>CHOOSE YOUR TOUR PLANS</h1>
                     </div>
                 </div>
                 <div class="container text-center mt-2">
                     <!--<div class="row tourPlanCards g-3"> -->
-                    <div class="row m-0">
+                    <div class="row m-0 mx-0">
                          <?php 
                             foreach ($tourPlanList as $tourPlan) {
                                //var_dump($tourPlan);

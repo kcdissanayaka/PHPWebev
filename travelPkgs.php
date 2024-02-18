@@ -244,8 +244,9 @@ if ($result) {
 <script>
     function checkInvalidCharacter(){
         var plansummary = document.getElementById("plnSummary").value;
-        var imgText = document.getElementById("imgText").value;
-        if (plansummary.includes("'") || imgText.includes("'")){
+        var imgText = document.getElementById("imageText").value;
+        var turPlnTitle = document.getElementById("tourPlnTitle").value;
+        if (plansummary.includes("'") || imgText.includes("'") || turPlnTitle.includes("'")){
 
             alert("Invalid Character Found /'");
             return false;
@@ -255,6 +256,9 @@ if ($result) {
          
     }
 </script>
+
+
+
 
 <script>
         function resetform(){

@@ -108,6 +108,7 @@ List and describe any forms that have been created as part of your project. Incl
 
 - Form 1 (Created By KASUN CHATHURANGA DISSANAYAKA): travelPkgs.php: Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/travelPkgs.php | Link to the form (shell.hamk.fi). http://shell.hamk.fi/~kasun23000/PHPFinalProject/PHPWebev/travelPkgs.php| Validations Applied
 Validation 1 . Filed Mandetory Validation - HTML valiation
+Validation 2 . Validate Invalid Charater "'" exist when saving the record.
 
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 
