@@ -56,41 +56,34 @@ include 'customerDashboardHeader.php'; ?>
       </div>
     </div>
   </div>
+  
+  
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-        Choose Your Package
-      </button>
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Choose Your Package
+        </button>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-      <div class="accordion-body">
-        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-      </div>
-      <?php 
-//$title = "Lankan Matka- Admin Manaeg Travel Plans";
+        <div class="accordion-body">
+        </div>
+        <?php 
+        include 'Admin/admindb.php';
 
-include 'Admin/admindb.php';
+        $tourPlanList = array();
+        $allTourPlns = array();
+        $query = "SELECT * FROM TOUR_PLAN_CARDS";
 
-$tourPlanList = array(); // creawted the array to store the data tavle card data receveid from my db.
-$allTourPlns = array();
-$query = "SELECT * FROM TOUR_PLAN_CARDS";
+        $result = $conn->query($query);
 
-$result = $conn->query($query);
+        if ($result) {
+            if ($result->num_rows > 0) {
+                $tourPlanList = $result->fetch_all(MYSQLI_ASSOC);
+            }
+        }
 
-
-
-if ($result) {
-    // Check if there are rows returned
-    if ($result->num_rows > 0) {
-        $tourPlanList = $result->fetch_all(MYSQLI_ASSOC);
-    }
-}
-
-$conn->close();
-?>
-
-        </section>
-        <!-- Tour Plan -->
+        $conn->close();
+        ?>
 
         <section id="plan">
             <div class="tourPlan text-center">
@@ -100,79 +93,124 @@ $conn->close();
                     </div>
                 </div>
                 <div class="container text-center mt-2">
-                    <!--<div class="row tourPlanCards g-3"> -->
-                    <div class="row m-0 mx-0">
-                         <?php 
-                            foreach ($tourPlanList as $tourPlan) {
-                               //var_dump($tourPlan);
-                                ?>
-                                <!--<div class="col-12 col-md-6 col-lg-4 ">
-                                        <div class="card h-100 shadow">
-                                            <div class="card"><img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
-                                                    <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
-                                                    <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>
-                                                    <a href="href='./edituser.php?emp_id=" class="btn btn-warning" onclick="togglepopup()">Edit Record</a>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>-->
-                                    
-                                        <div class="col-md-4">
-                                            <div class="card mb-4 h-100 shadow">
-                                                <img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
-                                                <div class="card-body">
-                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
-                                                    <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
-                                                                                            
-                                                </div>
-                                                <div>
-                                                <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>  
-                                                <button type="button" class="btn btn-warning mb-2" 
-                                                onclick="editPlan('<?php echo $tourPlan['TOUR_PLN_ID']; ?>',
-                                                '<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>',
-                                                '<?php echo $tourPlan['TOUR_PLN_PERSON_PRICE']; ?>',
-                                                '<?php echo $tourPlan['TOUR_PLN_DAYS']; ?>',
-                                                 '<?php echo $tourPlan['TOUR_PLN_PERSON_PRICE']; ?>', 
-                                                 '<?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?>',
-                                                 '<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>', 
-                                                 '<?php echo $tourPlan['TOUR_PLN_IMG_TEXT']; ?>', 
-                                                 '<?php echo $tourPlan['TOUR_PLN_STATUS']; ?>')">Add to Card</button>
-                                               
-                                                </div>
-                                            </div>
-                                        </div>
-                                            
-                                    
-                                <?php
-                            }
-                        ?>
-                        <!--
-                        
-                        <div class="col-md-4">
-                            <div class="card m-4 shadow" style="width: 18rem;">
-                                <div class="card"><img class="card-img-top"
-                                        src="assets/images/trip-plans-card-img/dolphin-watching.jpg"
-                                        alt="whale-and-dolphin-watching">
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <?php 
+                        foreach ($tourPlanList as $tourPlan) {
+                            ?>
+                            <div class="col">
+                                <div class="card h-100 shadow">
+                                    <img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
                                     <div class="card-body">
-                                        <h5 class="card-title">Galle</h5>
-                                        <p class="card-text">Not only can you see them, you can also swim with dolphins
-                                            in
-                                            Sri Lanka,
-                                            which is an never to be forgotten!</p>
-                                        <a href="#" class="btn btn-warning">Book Now</a>
+                                        <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
+                                        <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
+                                        <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>  
+                                        <button type="button" class="btn btn-warning mb-2 add-to-cart" data-id="<?php echo $tourPlan['TOUR_PLN_ID']; ?>" data-title="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>" data-price="<?php echo $tourPlan['TOUR_PLN_PERSON_PRICE']; ?>">Add to Cart</button>
                                     </div>
                                 </div>
-                            </div> -->
-                        </div>
-
-            
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
         </section> 
 
+        <section id="cart" class="mt-4">
+            <h2>Shopping Cart</h2>
+            <div class="container">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cart-body">
+                        <!-- Cart items will be added dynamically here -->
+                    </tbody>
+                </table>
+                <div id="total">Total: $0.00</div>
+            </div>
+        </section>
+
     </div>
-  </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let cartItems = [];
+
+        function addToCart(id, title, price) {
+            const existingItem = cartItems.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cartItems.push({ id, title, price, quantity: 1 });
+            }
+            renderCart();
+        }
+
+        function removeFromCart(id) {
+            console.log("Removing item with ID:", id);
+            cartItems = cartItems.filter(item => item.id !== id);
+            renderCart();
+        }
+
+        function updateQuantity(id, quantity) {
+            const item = cartItems.find(item => item.id === id);
+            if (item) {
+                item.quantity = parseInt(quantity);
+                renderCart();
+            }
+        }
+
+        function renderCart() {
+            const cartBody = document.getElementById("cart-body");
+            cartBody.innerHTML = "";
+            let total = 0;
+            cartItems.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                total += itemTotal;
+                const row = `
+                    <tr>
+                        <td>${item.title}</td>
+                        <td>$${item.price.toFixed(2)}</td>
+                        <td>
+                            <input type="number" value="${item.quantity}" min="1" onchange="updateQuantity(${item.id}, this.value)">
+                        </td>
+                        <td>$${itemTotal.toFixed(2)}</td>
+                        <td>
+                            <button class="btn btn-danger" onclick="removeFromCart(${item.id})">Remove</button>
+                        </td>
+                    </tr>
+                `;
+                cartBody.innerHTML += row;
+            });
+            document.getElementById("total").innerText = `Total: $${total.toFixed(2)}`;
+        }
+
+        const addToCartButtons = document.querySelectorAll(".add-to-cart");
+        addToCartButtons.forEach(button => {
+            button.addEventListener("click", function() {
+                const id = this.getAttribute("data-id");
+                const title = this.getAttribute("data-title");
+                const price = parseFloat(this.getAttribute("data-price"));
+                addToCart(id, title, price);
+            });
+        });
+    });
+</script>
+
+
+
+
+
+
+
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingThree">
       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">

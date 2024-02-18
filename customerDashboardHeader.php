@@ -64,6 +64,7 @@
 
     .tourPlan{
     background-image: linear-gradient(to right, rgba(136, 157, 186, 0.758), rgb(232, 227, 227));
+    margin-bottom: 100px;
     }
 
     .tourPlan h1{
