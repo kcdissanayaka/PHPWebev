@@ -37,6 +37,10 @@ include 'customerDashboardHeader.php'; ?>
            echo '<input type="number" class="form-control" id="numberOfPersons" name="numberOfPersons" placeholder="4" value="' . (isset($bookingData['numberOfPersons']) ? $bookingData['numberOfPersons'] : '') . '">';
            echo '</div>';
            echo '<div class="form-group">';
+           echo '<label for="whereToGo">Where To Go</label>';
+           echo '<input type="text" class="form-control" id="whereToGo" name="whereToGo" placeholder="Sigiriya" value="' . (isset($bookingData['whereToGo']) ? $bookingData['whereToGo'] : '') . '">';
+           echo '</div>';
+           echo '<div class="form-group">';
            echo '<label for="arrivalDate">Arrival Date</label>';
            echo '<input type="date" class="form-control" id="arrivalDate" name="arrivalDate" value="' . (isset($bookingData['arrivalDate']) ? $bookingData['arrivalDate'] : '') . '">';
            echo '</div>';
@@ -64,8 +68,113 @@ include 'customerDashboardHeader.php'; ?>
     </h2>
     <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body">
-       
+        <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
       </div>
+      <?php 
+//$title = "Lankan Matka- Admin Manaeg Travel Plans";
+
+include 'Admin/admindb.php';
+
+$tourPlanList = array(); // creawted the array to store the data tavle card data receveid from my db.
+$allTourPlns = array();
+$query = "SELECT * FROM TOUR_PLAN_CARDS";
+
+$result = $conn->query($query);
+
+
+
+if ($result) {
+    // Check if there are rows returned
+    if ($result->num_rows > 0) {
+        $tourPlanList = $result->fetch_all(MYSQLI_ASSOC);
+    }
+}
+
+//$conn->close();
+?>
+
+        </section>
+        <!-- Tour Plan -->
+
+        <section id="plan">
+            <div class="tourPlan text-center">
+                <div class="row">
+                    <div class="col">
+                        <h1>PREVIEW TOUR PLANS</h1>
+                    </div>
+                </div>
+                <div class="container text-center mt-2">
+                    <!--<div class="row tourPlanCards g-3"> -->
+                    <div class="row m-0">
+                         <?php 
+                            foreach ($tourPlanList as $tourPlan) {
+                               //var_dump($tourPlan);
+                                ?>
+                                <!--<div class="col-12 col-md-6 col-lg-4 ">
+                                        <div class="card h-100 shadow">
+                                            <div class="card"><img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
+                                                    <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
+                                                    <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>
+                                                    <a href="href='./edituser.php?emp_id=" class="btn btn-warning" onclick="togglepopup()">Edit Record</a>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+                                    
+                                        <div class="col-md-4">
+                                            <div class="card mb-4 h-100 shadow">
+                                                <img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
+                                                <div class="card-body">
+                                                    <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>
+                                                    <p class="card-text"><?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?></p>
+                                                                                            
+                                                </div>
+                                                <div>
+                                                <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>  
+                                                <button type="button" class="btn btn-warning mb-2" 
+                                                onclick="editPlan('<?php echo $tourPlan['TOUR_PLN_ID']; ?>',
+                                                '<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>',
+                                                '<?php echo $tourPlan['TOUR_PLN_PERSON_PRICE']; ?>',
+                                                '<?php echo $tourPlan['TOUR_PLN_DAYS']; ?>',
+                                                 '<?php echo $tourPlan['TOUR_PLN_PERSON_PRICE']; ?>', 
+                                                 '<?php echo $tourPlan['TOUR_PLN_DESCRIPTION']; ?>',
+                                                 '<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>', 
+                                                 '<?php echo $tourPlan['TOUR_PLN_IMG_TEXT']; ?>', 
+                                                 '<?php echo $tourPlan['TOUR_PLN_STATUS']; ?>')">Add to Card</button>
+                                               
+                                                </div>
+                                            </div>
+                                        </div>
+                                            
+                                    
+                                <?php
+                            }
+                        ?>
+                        <!--
+                        
+                        <div class="col-md-4">
+                            <div class="card m-4 shadow" style="width: 18rem;">
+                                <div class="card"><img class="card-img-top"
+                                        src="assets/images/trip-plans-card-img/dolphin-watching.jpg"
+                                        alt="whale-and-dolphin-watching">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Galle</h5>
+                                        <p class="card-text">Not only can you see them, you can also swim with dolphins
+                                            in
+                                            Sri Lanka,
+                                            which is an never to be forgotten!</p>
+                                        <a href="#" class="btn btn-warning">Book Now</a>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+            
+        </section> 
+
     </div>
   </div>
   <div class="accordion-item">
@@ -82,4 +191,7 @@ include 'customerDashboardHeader.php'; ?>
   </div>
 </div>
 
+
+
 <?php include 'customerDashboardFooter.php'; ?>
+

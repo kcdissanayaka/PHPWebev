@@ -39,6 +39,43 @@
             margin-left: 250px;
             padding: 20px;
         }
+
+        .tourPlan h1 {
+        font-size: 24px;
+        }
+
+    .card {
+        width: 100%;
+        margin: 10px 20px;
+
+      }
+    
+    .card-img-top{
+        width: 100%;
+        height: auto;
+        
+      } 
+    .card-img-top {
+     aspect-ratio: 16 / 9;
+    object-fit: cover;
+    }
+
+   
+
+    .tourPlan{
+    background-image: linear-gradient(to right, rgba(136, 157, 186, 0.758), rgb(232, 227, 227));
+    }
+
+    .tourPlan h1{
+    background-color: #92A811;
+    text-align: center;
+    padding: 10px;
+    color:whitesmoke;
+    font-family: 'AR One Sans', sans-serif;
+  }
+
+
+
     </style>
 </head>
 <body>
