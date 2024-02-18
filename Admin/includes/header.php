@@ -53,7 +53,7 @@
                 <!-- Nav Item - User Information -->
                 
                 <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <a id="navbarDropdownLink" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                     <?php echo isset($_SESSION["empFirstname"])?$_SESSION["empFirstname"]:"Error";?>
                     (<?php echo isset($_SESSION["empusername"])?$_SESSION["empusername"]:"Error";?>)
@@ -75,6 +75,30 @@
             </div>
         </div>
     </nav>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var dropdownLink = document.getElementById("navbarDropdownLink");
+        var dropdownMenu = dropdownLink.nextElementSibling;
+        document.addEventListener("click", function (event) {
+            var isDropdownClick = dropdownLink.contains(event.target);
+            var isDropdownMenuClick = dropdownMenu.contains(event.target);
+            if (!isDropdownClick && !isDropdownMenuClick) {
+                dropdownMenu.classList.remove("show");
+            }
+        });
+
+        dropdownLink.addEventListener("click", function (event) {
+            event.preventDefault();
+            if (dropdownMenu.classList.contains("show")) {
+                dropdownMenu.classList.remove("show");
+            } else {
+                dropdownMenu.classList.add("show");
+            }
+        });
+    });
+    </script>
+
 
     <!-- End of Navigation Bar -->    
 
