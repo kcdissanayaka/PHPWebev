@@ -177,7 +177,7 @@ if ($result) {
                             </div>
                             <div class=" col-md-4 pb-4">
                                 <label for="plnDays" class="form-label">Number of Days</label>
-                                <input type="number" class="form-control" name="plnDays" id="plnDays" required>
+                                <input type="number" class="form-control" name="plnDays" id="plnDays" required onblur="invalidDays()  ">
                             </div>
                             <div class=" col-md-4 pb-4">
                                 <label for="plnprice" class="form-label">Price</label>
@@ -210,7 +210,7 @@ if ($result) {
                                 </div>
                                 <div class= "col-mb-4 mx-4 pb-4" >
 
-                                    <button type="submit" name ="submit" onclick="return checkInvalidCharacter()" class="btn btn-success mt-2 mt-2 mr-2">Create Plan</button>
+                                    <button type="submit" name ="submit" onclick="return checkInvalidCharacter() invalidDays()" class="btn btn-success mt-2 mt-2 mr-2">Create Plan</button>
                                     <button type="submit" name ="submit" class="btn btn-warning mt-2 mr-2">Update Plan</button>
                                     <button type="submit" name ="submit" class="btn btn-danger mt-2 mr-2">Delete Plan</button>
                                     <button type="button" name ="clear" value="Submit"  id ="clear" onclick="resetform()" class="btn btn-primary  mr-2 mt-2">Clear Form</button>
@@ -249,6 +249,21 @@ if ($result) {
         if (plansummary.includes("'") || imgText.includes("'") || turPlnTitle.includes("'")){
 
             alert("Invalid Character Found /'");
+            return false;
+        } else {
+            return true;
+        } 
+         
+    }
+</script>
+
+<script>
+    function invalidDays(){
+        var plnDays = document.getElementById("plnDays").value;
+        
+        if (plnDays <=0){
+
+            alert("Days must be greter than 0");
             return false;
         } else {
             return true;
