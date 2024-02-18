@@ -57,7 +57,7 @@ $conn->close();
                                                 </div>
                                                 <div>
                                                 <p class="card-text"><?php echo "Price $". $tourPlan['TOUR_PLN_PERSON_PRICE'].".00"; ?></p>  
-                                                <a href="href='./edituser.php?emp_id=" class="btn btn-warning mb-2" onclick="togglepopup()">View Package Details</a>
+                                                <a href="#" class="btn btn-warning mb-2" onclick="togglepopup()">View Package Details</a>
                                                 </div>
                                             </div>
                                         </div>
