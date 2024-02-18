@@ -37,10 +37,6 @@ include 'customerDashboardHeader.php'; ?>
            echo '<input type="number" class="form-control" id="numberOfPersons" name="numberOfPersons" placeholder="4" value="' . (isset($bookingData['numberOfPersons']) ? $bookingData['numberOfPersons'] : '') . '">';
            echo '</div>';
            echo '<div class="form-group">';
-           echo '<label for="whereToGo">Where To Go</label>';
-           echo '<input type="text" class="form-control" id="whereToGo" name="whereToGo" placeholder="Sigiriya" value="' . (isset($bookingData['whereToGo']) ? $bookingData['whereToGo'] : '') . '">';
-           echo '</div>';
-           echo '<div class="form-group">';
            echo '<label for="arrivalDate">Arrival Date</label>';
            echo '<input type="date" class="form-control" id="arrivalDate" name="arrivalDate" value="' . (isset($bookingData['arrivalDate']) ? $bookingData['arrivalDate'] : '') . '">';
            echo '</div>';

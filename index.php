@@ -205,11 +205,11 @@ $conn->close();
                         </div>
                         <div class="form-group">
                             <label for="arrivalDate">Arrival Date</label>
-                            <input type="date" class="form-control" id="arrivalDate" name="arrivalDate">
+                            <input type="date" class="form-control" id="arrivalDate" name="arrivalDate" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>">
                         </div>
                         <div class="form-group">
                             <label for="departureDate">Departure Date</label>
-                            <input type="date" class="form-control" id="departureDate" name="departureDate">
+                            <input type="date" class="form-control" id="departureDate" name="departureDate" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+14 days')); ?>">
                         </div>
                         <button type="submit" class="btn btn-warning" name="submit">Submit</button>
                         <button type="reset" class="btn btn-warning">Reset</button>
@@ -220,6 +220,12 @@ $conn->close();
                         function validateForm() {
                             var arrivalDate = document.getElementById("arrivalDate").value;
                             var departureDate = document.getElementById("departureDate").value;
+                            var futureDate = new Date();
+                            futureDate.setDate(futureDate.getDate() + 14); // Set the departure date to 14 days in the future
+
+                            // Validate arrival date
+                            if (arrivalDate < today) {
+                                alert("Please select today's date or a future date for arrival.");
 
                             var today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
 
@@ -235,6 +241,7 @@ $conn->close();
 
                             return true; // Allow form submission
                         }
+                    }
                     </script>
 
                         </div>
