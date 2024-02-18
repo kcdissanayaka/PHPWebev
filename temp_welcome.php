@@ -22,6 +22,13 @@ if (isset($_SESSION["booking_details"])) {
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=AR+One+Sans&display=swap">
+    <link rel="stylesheet" href="styles/styles.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <!-- Custom styles for this template -->
     <style>
         body {
@@ -63,7 +70,7 @@ if (isset($_SESSION["booking_details"])) {
         ?>
         <p class="lead">Thank you for choosing our travel package. We're excited to have you on board.</p>
         <hr class="my-4">
-        <p>If you are already registered, please <a href="homepage.php">login</a>. Otherwise, <a href="#contact-modal" data-toggle="modal">register</a> with us.</p>
+        <center><p>If you are already registered, please <a href="login.php" data-toggle="modal" data-target="#loginModal">login</a>. Otherwise, <a href="#contact-modal" data-toggle="modal">register</a> with us.</p></center>
     </div>
 </main>
 
@@ -78,7 +85,7 @@ if (isset($_SESSION["booking_details"])) {
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body">            
                 <form method="post" class="text-center">
                     <div class="form-group text-center">
                         <div style="margin-bottom: 20px;">
@@ -285,9 +292,43 @@ if(isset($_POST['login']) && isset($_POST['emailid']) && isset($_POST['password'
 }
 ?>
 
+<script>
+    <?php if(!empty($error)): ?>
+    $(document).ready(function() {
+        Swal.fire({
+            title: 'Error',
+            text: '<?php echo $error; ?>',
+            icon: 'error',
+            showCancelButton: true,
+            confirmButtonText: 'Login Again',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $('#loginModal').modal('show');
+            }
+        });
+    });
+    <?php endif; ?>
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('#createAccountBtn').click(function(){
+            $('#loginModal').modal('hide');
+        });
+    });
+</script>
+
 <!-- Bootstrap JS and dependencies -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="scripts/script.js"></script>
+
 </body>
 </html>
