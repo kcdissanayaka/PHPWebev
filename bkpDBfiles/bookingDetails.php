@@ -90,7 +90,7 @@ if ($result) {
     }
 }
 
-$conn->close();
+//$conn->close();
 ?>
 
         </section>

@@ -204,10 +204,6 @@ $conn->close();
                             <input type="number" class="form-control" id="numberOfPersons" name="numberOfPersons" placeholder="4">
                         </div>
                         <div class="form-group">
-                            <label for="whereToGo">Where To Go</label>
-                            <input type="text" class="form-control" id="whereToGo" name="whereToGo" placeholder="Sigiriya">
-                        </div>
-                        <div class="form-group">
                             <label for="arrivalDate">Arrival Date</label>
                             <input type="date" class="form-control" id="arrivalDate" name="arrivalDate">
                         </div>
