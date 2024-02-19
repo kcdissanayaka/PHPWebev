@@ -78,6 +78,7 @@
 
 
     </style>
+    
 </head>
 <body>
 
@@ -86,10 +87,13 @@
         <ul>
             <li><a href="homepage.php"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a></li>
             <li><a href="bookingDetails.php"><i class="fas fa-book mr-2"></i>Booking Details</a></li>
-            <li><a href="#update-profile"><i class="fas fa-user-edit mr-2"></i>Update Profile</a></li>
+            <li><a class="dropdown-item" href="Update_Cus.php?emailId=<?php echo htmlspecialchars($_SESSION["emailId"] ?? ''); ?>">
+            <i class="fas fa-user-edit mr-2"></i>Update Profile</a></li>
             <li><a href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
         </ul>
     </div>
+
+    
 
     <!-- Content -->
     <div class="content">
