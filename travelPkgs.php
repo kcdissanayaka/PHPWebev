@@ -261,9 +261,24 @@ if ($result) {
     function invalidDays(){
         var plnDays = document.getElementById("plnDays").value;
         
-        if (plnDays <=0){
+        if (plnDays <0){
 
             alert("Days must be greter than 0");
+            return false;
+        } else {
+            return true;
+        } 
+         
+    }
+</script>
+
+<script>
+    function invalidPrice(){
+        var plnprice = document.getElementById("plnprice").value;
+        
+        if (plnprice <0){
+
+            alert("Price must be greter than 0");
             return false;
         } else {
             return true;
