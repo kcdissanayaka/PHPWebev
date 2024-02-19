@@ -9,6 +9,7 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <!-- Custom CSS -->
     <style>
         .sidebar {
@@ -89,11 +90,17 @@
             <li><a href="bookingDetails.php"><i class="fas fa-book mr-2"></i>Booking Details</a></li>
             <li><a class="dropdown-item" href="Update_Cus.php?emailId=<?php echo htmlspecialchars($_SESSION["emailId"] ?? ''); ?>">
             <i class="fas fa-user-edit mr-2"></i>Update Profile</a></li>
-            <li><a href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
+            <li><a href="#" id="logoutLink"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
+
         </ul>
     </div>
 
-    
+    <script>
+    document.getElementById('logoutLink').addEventListener('click', function() {
+        $('#logoutModal').modal('show');
+    });
+</script>
+
 
     <!-- Content -->
     <div class="content">
@@ -114,7 +121,7 @@
                           <div class="modal-footer">
                             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 
-                            <form action="customerLogout.php" method="POST"> 
+                            <form action="Update_Cus.php" method="POST"> 
 
                               <button type="submit" name="logout_btn" class="btn btn-primary">Logout</button>
 

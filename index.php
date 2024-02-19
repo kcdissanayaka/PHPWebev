@@ -189,27 +189,27 @@ $conn->close();
                         <form action="" method="POST" onsubmit="return validateForm()">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="your name here">
+                            <input type="text" class="form-control" id="name" name="name" placeholder="your name here" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email Address</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="your email here">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="your email here" required>
                         </div>
                         <div class="form-group">
                             <label for="phone">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="your phone number">
+                            <input type="tel" class="form-control" id="phone" name="phone" placeholder="your phone number" required>
                         </div>
                         <div class="form-group">
                             <label for="numberOfPersons">Number Of Persons</label>
-                            <input type="number" class="form-control" id="numberOfPersons" name="numberOfPersons" placeholder="4">
+                            <input type="number" class="form-control" id="numberOfPersons" name="numberOfPersons" placeholder="4" required>
                         </div>
                         <div class="form-group">
                             <label for="arrivalDate">Arrival Date</label>
-                            <input type="date" class="form-control" id="arrivalDate" name="arrivalDate" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>">
+                            <input type="date" class="form-control" id="arrivalDate" name="arrivalDate" min="<?php echo date('Y-m-d'); ?>" value="<?php echo date('Y-m-d'); ?>" required>
                         </div>
                         <div class="form-group">
                             <label for="departureDate">Departure Date</label>
-                            <input type="date" class="form-control" id="departureDate" name="departureDate" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+14 days')); ?>">
+                            <input type="date" class="form-control" id="departureDate" name="departureDate" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+14 days')); ?>" required>
                         </div>
                         <button type="submit" class="btn btn-warning" name="submit">Submit</button>
                         <button type="reset" class="btn btn-warning">Reset</button>
