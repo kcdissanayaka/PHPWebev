@@ -33,7 +33,7 @@ if ($result) {
                 </div>
                 <div class="container text-center mt-2">
                     <!--<div class="row tourPlanCards g-3"> -->
-                    <div class="row m-0">
+                    <div class="row m-0 tourPlanCards">
                          <?php 
                             foreach ($tourPlanList as $tourPlan) {
                                //var_dump($tourPlan);
@@ -261,9 +261,24 @@ if ($result) {
     function invalidDays(){
         var plnDays = document.getElementById("plnDays").value;
         
-        if (plnDays <=0){
+        if (plnDays <0){
 
             alert("Days must be greter than 0");
+            return false;
+        } else {
+            return true;
+        } 
+         
+    }
+</script>
+
+<script>
+    function invalidPrice(){
+        var plnprice = document.getElementById("plnprice").value;
+        
+        if (plnprice <0){
+
+            alert("Price must be greter than 0");
             return false;
         } else {
             return true;

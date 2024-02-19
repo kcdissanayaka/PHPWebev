@@ -5,15 +5,7 @@ session_start();
 include 'customerDashboardHeader.php';
 require_once "db.php";
 
-// Check if 'emailId' is set in the URL parameters
-if(isset($_GET['emailId'])) {
-    $email = filter_var($_GET['emailId'], FILTER_SANITIZE_EMAIL);
-    if(empty($email)) {
-        die('Error: Email ID not provided or invalid.');
-    }
-} else {
-    die('Error: Email ID not provided.');
-}
+$email = $_SESSION['emailId'];
 
 $sql = "SELECT * FROM CUSTOMER_REG WHERE email = ?";
 $stmt = $conn->prepare($sql);
