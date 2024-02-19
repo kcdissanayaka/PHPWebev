@@ -36,7 +36,7 @@ if (isset($_POST['submit'])) {
     // Include the database connection file
     include 'admindb.php';
 
-    // Define an SQL query to insert data into the 'studentsinfo' table
+    // Define an SQL query to insert data into the 'staffrole' table
     $sql = "INSERT INTO STAFFROLE (ROLE_NAME)
             VALUES ('$rolename')";
 
