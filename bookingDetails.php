@@ -98,7 +98,7 @@ include 'customerDashboardHeader.php'; ?>
                         foreach ($tourPlanList as $tourPlan) {
                             ?>
                             <div class="col">
-                                <div class="card h-100 shadow">
+                                <div class="card h-100 mx-4 shadow">
                                     <img class="card-img-top" src="assets/images/trip-plans-card-img/<?php echo $tourPlan['TOUR_PLN_IMAGE']; ?>" alt="<?php echo $tourPlan['TOUR_PLN_TITLE']; ?>">
                                     <div class="card-body">
                                         <h5 class="card-title"><?php echo $tourPlan['TOUR_PLN_TITLE']; ?></h5>

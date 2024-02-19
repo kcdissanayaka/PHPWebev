@@ -51,9 +51,11 @@ As a Admin an User of the website I should be able to create/ Update/ Delete  To
 ### Feature 2
 
 The login page will be created in order to authenticate customers into the web portal after successful validation.
-GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php
+GitHub Link  : https://github.com/kcdissanayaka/PHPWebev/blob/main/header.php
+
 The role-read page will create user roles and manage the user roles with delete function.
-GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php
+GitHub Links : https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php
+               https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/create-role.php   
 
 ### Feature 3
 
@@ -68,7 +70,18 @@ GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/header.php
 ### Feature 4
 
 Package booking: User package booking management, save the booking details in database, add the card to select multiple packages and finally do the payment and store all the data into the db.   
-GitHub Link : https://github.com/kcdissanayaka/PHPWebev/blob/main/readTrvPkgs.php
+
+GitHub Links 
+
+https://github.com/kcdissanayaka/PHPWebev/blob/main/bookingDetails.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/readTrvPkgs.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/customerDashboardFooter.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/customerDashboardHeader.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/temp_welcome.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/customerLogout.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/Update_Cus.php
+
+
 
 Admin panel: this admin dashboard for the all the backend tasks like employee profile creation, managing, other website managing task like adding new content package, services. 
 
@@ -90,11 +103,12 @@ https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/deleteuser.php
 List the database tables that are part of your project. 
 
 - Table 1 (Created By : KASUN CHATHURANGA DISSANAYAKA): TOUR_PLAN_CARDS
-- Table 2 (Created By): MUJITHA MANORATHNA: STAFFROLE 
+- Table 2 (Created By): MUJITHA MANORATHNA: STAFFREG 
 - Table 3 (Created By): MUJITHA MANORATHNA: CUSTOMER_BOOKING
-- Table 4 (Created By): ASITHA SANDARUWAN : staffreg
-- Table 5 (Created By): ASITHA SANDARUWAN : customer_reg
-- Table 6 (Created By): DULSHAN WELENGODA: SERVICES_INFO 
+- Table 4 (Created By): MUJITHA MANORATHNA: TOUR_CUSTOMER_BOOKING_PLAN
+- Table 5 (Created By): ASITHA SANDARUWAN : staffreg
+- Table 6 (Created By): ASITHA SANDARUWAN : customer_reg
+- Table 7 (Created By): DULSHAN WELENGODA:  STAFFROLE 
 
 
 > Include the ER Diagram of the database. 
@@ -118,9 +132,21 @@ http://shell.hamk.fi/~kasun23000/PHPFinalProject/PHPWebev/bookingDetails.php
 
 - Form 2: (Created By): Form Name: Link to the related code file (github) | Link to the form (shell.hamk.fi).  | Validations Applied
 
-- Form 3: (Created By): DULSHAN WELENGODA Form Name: login.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/login.php | Link to the form (shell.hamk.fi). | Validations Applied
+- Form 3: (Created By): DULSHAN WELENGODA  
 
-- Form 4: (Created By): DULSHAN WELENGODA Form Name: role-read.php Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php | Link to the form (shell.hamk.fi). | Validations Applied
+(github) 
+https://github.com/kcdissanayaka/PHPWebev/blob/main/header.php 
+https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/role-read.php
+https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/create-role.php
+            
+(shell.hamk.fi)
+http://shell.hamk.fi/~dulshan23000/PHPWebev/header.php
+http://shell.hamk.fi/~dulshan23000/PHPWebev/Admin/role-read.php
+http://shell.hamk.fi/~dulshan23000/PHPWebev/Admin/create-role.php   
+Validations 1. Whether an existing user
+            2. Whether an existing role
+
+- Form 4: (Created By): DULSHAN WELENGODA Form Name: role-read.php Link to the related code file (github)  | Link to the form (shell.hamk.fi). | Validations Applied
 
 - Form 5: (Created By): (Created By ASITHA SANDARUWAN ): staff_reg_process.php: Link to the related code file
 
@@ -148,6 +174,14 @@ Validations Applied (Password Special Characters, User already exsits, Email alr
 
 - Form 7: (Created By): (Created By MUJITHA MANORATHNA ): edituser.php : Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/edituser.php | Link to the form (http://shell.hamk.fi/~mujitha22000/NMM_Manorathna/PHPWebev/Admin/edituser.php?emp_id=1). | PHP & JS Validations Applied.
 
+- Form 8: (Created By): (Created By MUJITHA MANORATHNA ): index.php (booking form) : Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/index.php | Link to the form (http://shell.hamk.fi/~mujitha22000/NMM_Manorathna/PHPWebev/index.php). | JS Validations Applied.
+
+- Form 9: (Created By): (Created By MUJITHA MANORATHNA ): temp_welcome.php (temp_welcome form) : Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/temp_welcome.php | Link to the form (http://shell.hamk.fi/~mujitha22000/NMM_Manorathna/PHPWebev/temp_welcome.php). | JS Validations Applied.
+
+
+
+
+
 
 
 ---
@@ -158,8 +192,7 @@ List any tables that you have created in the project work
 
 - Table 1 (Created By KASUN CHATHURANGA DISSANAYAKA): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
 - Table 2 (Created By ASITHA SANDARUWAN): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
-- Table 3 (Created By ASITHA SANDARUWAN): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).
-
+- Table 3 (Created By ASITHA SANDARUWAN): Table Name | Link to the related code file (github) | Link to the table (shell.hamk.fi).- Table 4 (Created by MUJITHA MANORATHNA): Table Name | https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/edituser.php | http://shell.hamk.fi/~mujitha22000/NMM_Manorathna/PHPWebev/Admin/edituser.php 
 ---
 
 

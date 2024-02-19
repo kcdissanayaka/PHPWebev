@@ -33,7 +33,7 @@ if ($result) {
                 </div>
                 <div class="container text-center mt-2">
                     <!--<div class="row tourPlanCards g-3"> -->
-                    <div class="row m-0">
+                    <div class="row m-0 tourPlanCards">
                          <?php 
                             foreach ($tourPlanList as $tourPlan) {
                                //var_dump($tourPlan);
