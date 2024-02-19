@@ -64,6 +64,7 @@
 
     .tourPlan{
     background-image: linear-gradient(to right, rgba(136, 157, 186, 0.758), rgb(232, 227, 227));
+    margin-bottom: 100px;
     }
 
     .tourPlan h1{
@@ -77,6 +78,7 @@
 
 
     </style>
+    
 </head>
 <body>
 
@@ -85,10 +87,13 @@
         <ul>
             <li><a href="homepage.php"><i class="fas fa-tachometer-alt mr-2"></i>Dashboard</a></li>
             <li><a href="bookingDetails.php"><i class="fas fa-book mr-2"></i>Booking Details</a></li>
-            <li><a href="#update-profile"><i class="fas fa-user-edit mr-2"></i>Update Profile</a></li>
+            <li><a class="dropdown-item" href="Update_Cus.php?emailId=<?php echo htmlspecialchars($_SESSION["emailId"] ?? ''); ?>">
+            <i class="fas fa-user-edit mr-2"></i>Update Profile</a></li>
             <li><a href="#" data-toggle="modal" data-target="#logoutModal"><i class="fas fa-sign-out-alt mr-2"></i>Logout</a></li>
         </ul>
     </div>
+
+    
 
     <!-- Content -->
     <div class="content">
@@ -97,7 +102,7 @@
 
      <!-- Logout Modal-->
      <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
+                      <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                           <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel alert">Are you sure you want to logout?</h5>
