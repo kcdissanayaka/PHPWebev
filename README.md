@@ -31,8 +31,9 @@ In this section, list and describe the features or functionality that you are wo
 - [ ] Manage Tour Package (Molagoda Dissanayakage Kasun Chathuranga Dissanayaka): Tour Packge Maintenance. 
 - [ ] Feature 2 (Dulshan Pramuditha Welengoda): Customer Login Page Creation | User permissions assignment.
 - [ ] Feature 3 (Govinnage Asitha Sandaruwan): Manage User Registration | Manage Staff Registration.
-- [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Admin Panel | Package Booking Management
+- [ ] Feature 4 (Nawarathna Mudiyanselage Mujitha Manorathna): Admin Panel Dashboard | Package Booking Management
 - [ ] Feature 5 (Nawarathna Mudiyanselage Mujitha Manorathna): Manage Staff user
+- [ ] Feature 6 (Nawarathna Mudiyanselage Mujitha Manorathna): End user dashborad | Shopping cart 
 
 > Add features as required. 
 
@@ -73,6 +74,7 @@ Package booking: User package booking management, save the booking details in da
 
 GitHub Links 
 
+https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/
 https://github.com/kcdissanayaka/PHPWebev/blob/main/bookingDetails.php
 https://github.com/kcdissanayaka/PHPWebev/blob/main/readTrvPkgs.php
 https://github.com/kcdissanayaka/PHPWebev/blob/main/customerDashboardFooter.php
@@ -86,8 +88,6 @@ https://github.com/kcdissanayaka/PHPWebev/blob/main/Update_Cus.php
 Admin panel: this admin dashboard for the all the backend tasks like employee profile creation, managing, other website managing task like adding new content package, services. 
 
 GitHub Link : https://github.com/kcdissanayaka/PHPWebev/tree/main/Admin
-login details: 
-admin/93Srilanka@
 
 ### Feature 5
 
@@ -95,6 +95,14 @@ Manage system user: including user profile update, delete user and see all the s
 https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/read.php
 https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/edituser.php
 https://github.com/kcdissanayaka/PHPWebev/blob/main/Admin/deleteuser.php
+
+### Feature 6
+
+End user dashborad - This Dashboard for all the user function like booking management, update user details and so on. 
+https://github.com/kcdissanayaka/PHPWebev/blob/main/homepage.php
+
+Shopping cart: This function developed for user to add the packages what he want, its a dynamic cart it support adding, removing, and dynamically update. 
+https://github.com/kcdissanayaka/PHPWebev/blob/main/bookingDetails.php
 
 ---
 
@@ -177,6 +185,8 @@ Validations Applied (Password Special Characters, User already exsits, Email alr
 - Form 8: (Created By): (Created By MUJITHA MANORATHNA ): index.php (booking form) : Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/index.php | Link to the form (http://shell.hamk.fi/~mujitha22000/NMM_Manorathna/PHPWebev/index.php). | JS Validations Applied.
 
 - Form 9: (Created By): (Created By MUJITHA MANORATHNA ): temp_welcome.php (temp_welcome form) : Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/temp_welcome.php | Link to the form (http://shell.hamk.fi/~mujitha22000/NMM_Manorathna/PHPWebev/temp_welcome.php). | JS Validations Applied.
+
+- Form 9: (Created By): (Created By MUJITHA MANORATHNA ): bookingDetails.php (Booking form) : Link to the related code file (github) https://github.com/kcdissanayaka/PHPWebev/blob/main/bookingDetails.php | Link to the form (http://shell.hamk.fi/~mujitha22000/NMM_Manorathna/PHPWebev/bookingDetails.php). | JS Validations Applied.
 
 
 
